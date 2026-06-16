@@ -1,0 +1,4 @@
+# How Are You? — static site, no build step
+[build]
+  publish = "."
+  command = ""

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — How Are You?</title>
+<meta name="description" content="Get in touch with How Are You? — the studio of Jack Howard, Cork.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-side="studio">
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="How Are You? — home">
+    <span class="bmark" aria-hidden="true"></span>
+    <span class="name">How&nbsp;Are&nbsp;You?</span>
+  </a>
+  <div class="toggle" role="tablist" aria-label="Switch between Studio and Services">
+    <span class="knob" aria-hidden="true"></span>
+    <a href="index.html#studio" class="t-studio" role="tab">Studio</a>
+    <a href="index.html#services" class="t-services" role="tab">Services</a>
+  </div>
+  <nav class="nav">
+    <a class="navlink" href="contact.html">Contact</a>
+    <span class="idx"><span>HAY</span><span>SS1</span></span>
+  </nav>
+</header>
+
+<section class="p-head wrap">
+  <div class="crumbs">
+    <a class="mono" href="index.html">← Home</a>
+    <span class="mono">Say hello</span>
+  </div>
+</section>
+
+<div class="contact-wrap wrap">
+  <div class="intro-col">
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.03em;line-height:.98">How are <em style="font-family:var(--serif);font-style:italic;font-weight:400">you?</em></h1>
+    <p style="margin-top:20px;color:var(--ink-2);max-width:38ch">Got a project, a commission, or just want to say hello? Drop a line below, or reach me directly.</p>
+    <p class="mono" style="margin-top:26px;line-height:2">
+      <a href="mailto:jack.howard1993@gmail.com" style="border-bottom:1px solid var(--red)">jack.howard1993@gmail.com</a><br>
+      <a href="https://www.instagram.com/how.are.you.studio" target="_blank" rel="noopener">Instagram — @how.are.you.studio</a><br>
+      <a href="https://www.behance.net/jckhwd" target="_blank" rel="noopener">Behance — /jckhwd</a><br>
+      Cork, Ireland
+    </p>
+  </div>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact-thanks.html">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hp"><label>Don't fill this in: <input name="bot-field"></label></p>
+    <div class="field">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" required autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="What are you trying to make?"></textarea>
+    </div>
+    <button class="send" type="submit">Send it →</button>
+  </form>
+</div>
+
+<footer class="foot wrap">
+  <img class="stamp" src="assets/img/hay-stamp.png" alt="HAY SS1 stamp">
+  <div class="fmeta">
+    How Are You? · Studio of Jack Howard · Cork, Ireland<br>
+    &copy; <span data-year>2026</span> · <button class="dont" data-dont type="button">do not press</button>
+  </div>
+  <a class="top-link" href="index.html">Home ↑</a>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
