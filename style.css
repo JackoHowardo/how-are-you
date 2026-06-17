@@ -284,3 +284,18 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 /* cleaner Selected Work / Commissions heading — no rule line, no dot, smaller */
 .sec-head.sh-plain{ border-top:none; padding-top:0; margin-top:clamp(28px,4vw,52px); }
 .sec-head.sh-plain h2{ font-size:clamp(1rem,1.8vw,1.25rem); font-weight:500; letter-spacing:0; }
+
+/* v5 cursor — directional arrow, tip is the click hotspot */
+.cursor-dot{ width:30px; height:24px; background:none; box-shadow:none; border-radius:0; mix-blend-mode:normal; transform:translate(-27px,-12px); transition:none; }
+.cursor-dot .arrow{ display:block; width:100%; height:100%; transform-origin:27px 12px; transform:rotate(var(--rot,0deg)); transition:transform .14s ease; }
+.cursor-dot svg{ width:100%; height:100%; display:block; overflow:visible; }
+/* grabbable brand dot shows the normal grab cursor */
+.brand .bmark{ cursor:grab; }
+.brand .bmark:active{ cursor:grabbing; }
+/* headline: red underline that draws itself on hover */
+.intro h1{ position:relative; display:inline-block; }
+.intro h1::after{ content:""; position:absolute; left:0; right:0; bottom:-.04em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .55s cubic-bezier(.6,.05,.2,1); }
+.intro h1:hover::after{ transform:scaleX(1); }
+/* smiley faces popping from the portrait */
+.hay-smiley{ position:fixed; z-index:9995; width:26px; height:26px; pointer-events:none; }
+.hay-smiley svg{ width:100%; height:100%; display:block; }
