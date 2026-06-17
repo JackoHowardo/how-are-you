@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — How Are You?</title>
 <meta name="description" content="Get in touch with How Are You? — the studio of Jack Howard, Cork.">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-side="studio">
 
@@ -48,9 +48,7 @@
     </p>
   </div>
 
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact-thanks.html">
-    <input type="hidden" name="form-name" value="contact">
-    <p class="hp"><label>Don't fill this in: <input name="bot-field"></label></p>
+  <form id="contact-form">
     <div class="field">
       <label for="name">Your name</label>
       <input id="name" name="name" type="text" required autocomplete="name">
@@ -68,7 +66,7 @@
 </div>
 
 <footer class="foot wrap">
-  <img class="stamp" src="assets/img/hay-stamp.png" alt="HAY SS1 stamp">
+  <img class="stamp" src="hay-stamp.png" alt="HAY SS1 stamp">
   <div class="fmeta">
     How Are You? · Studio of Jack Howard · Cork, Ireland<br>
     &copy; <span data-year>2026</span> · <button class="dont" data-dont type="button">do not press</button>
@@ -76,6 +74,6 @@
   <a class="top-link" href="index.html">Home ↑</a>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
