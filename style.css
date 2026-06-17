@@ -292,10 +292,12 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 /* grabbable brand dot shows the normal grab cursor */
 .brand .bmark{ cursor:grab; }
 .brand .bmark:active{ cursor:grabbing; }
-/* headline: red underline that draws itself on hover */
-.intro h1{ position:relative; display:inline-block; }
-.intro h1::after{ content:""; position:absolute; left:0; right:0; bottom:-.04em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .55s cubic-bezier(.6,.05,.2,1); }
-.intro h1:hover::after{ transform:scaleX(1); }
+/* headline: red underline that draws itself under "how are you?" on hover */
+.intro h1 em{ position:relative; }
+.intro h1 em::after{ content:""; position:absolute; left:0; right:0; bottom:-.06em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .55s cubic-bezier(.6,.05,.2,1); }
+.intro h1:hover em::after{ transform:scaleX(1); }
 /* smiley faces popping from the portrait */
 .hay-smiley{ position:fixed; z-index:9995; width:26px; height:26px; pointer-events:none; }
 .hay-smiley svg{ width:100%; height:100%; display:block; }
+/* firework line sparks off project cards */
+.hay-spark{ position:fixed; z-index:9994; width:2px; border-radius:2px; pointer-events:none; transform-origin:center; }

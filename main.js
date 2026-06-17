@@ -126,7 +126,7 @@
 
   /* ---- smiley faces popping from the studio portrait on hover ---- */
   function smileySVG(col) {
-    return '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="' + col + '"/><circle cx="8.5" cy="10" r="1.6" fill="#22211F"/><circle cx="15.5" cy="10" r="1.6" fill="#22211F"/><path d="M7.5 14 Q12 18 16.5 14" fill="none" stroke="#22211F" stroke-width="1.8" stroke-linecap="round"/></svg>';
+    return '<svg viewBox="0 0 24 24"><circle cx="8.5" cy="9.5" r="1.9" fill="' + col + '"/><circle cx="15.5" cy="9.5" r="1.9" fill="' + col + '"/><path d="M7 14 Q12 18.5 17 14" fill="none" stroke="' + col + '" stroke-width="2" stroke-linecap="round"/></svg>';
   }
   (function () {
     var photo = document.querySelector('.side-studio .photo'); if (!photo) return;
@@ -147,10 +147,47 @@
         { transform: 'translate(-50%,-50%) scale(.2) rotate(0deg)', opacity: 0 },
         { transform: 'translate(' + (-50 + dirx * 30) + '%,' + (-50 + diry * 30) + '%) scale(1) rotate(' + (rot / 2) + 'deg)', opacity: 1, offset: 0.3 },
         { transform: 'translate(calc(-50% + ' + (dirx * dist) + 'px),calc(-50% + ' + (diry * dist) + 'px)) scale(.7) rotate(' + rot + 'deg)', opacity: 0 }
-      ], { duration: 1100, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = function () { s.remove(); };
+      ], { duration: 2000, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = function () { s.remove(); };
     }
-    photo.addEventListener('mouseenter', function () { if (timer) return; spawn(); timer = setInterval(spawn, 230); });
+    photo.addEventListener('mouseenter', function () { if (timer) return; spawn(); timer = setInterval(spawn, 620); });
     photo.addEventListener('mouseleave', function () { clearInterval(timer); timer = null; });
+  })();
+
+  /* ---- mini firework line bursts off the project cards on hover ---- */
+  function fireworks(card) {
+    var r = card.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    var N = 18;
+    for (var i = 0; i < N; i++) {
+      var ang = (i / N) * Math.PI * 2 + (Math.random() - 0.5) * 0.25;
+      var dx = Math.cos(ang), dy = Math.sin(ang);
+      var tx = dx !== 0 ? (r.width / 2) / Math.abs(dx) : Infinity;
+      var ty = dy !== 0 ? (r.height / 2) / Math.abs(dy) : Infinity;
+      var t = Math.min(tx, ty);
+      var ex = cx + dx * t, ey = cy + dy * t;
+      var len = 12 + Math.random() * 18, reach = len + 16 + Math.random() * 22;
+      var deg = ang * 180 / Math.PI + 90;
+      var sp = document.createElement('div'); sp.className = 'hay-spark';
+      sp.style.left = ex + 'px'; sp.style.top = ey + 'px';
+      sp.style.height = len + 'px';
+      sp.style.background = PAL[(Math.random() * 3) | 0];
+      document.body.appendChild(sp);
+      sp.animate([
+        { opacity: 0, transform: 'translate(calc(-50% + ' + (dx * 2) + 'px),calc(-50% + ' + (dy * 2) + 'px)) rotate(' + deg + 'deg) scaleY(.3)' },
+        { opacity: 1, offset: 0.25 },
+        { opacity: 0, transform: 'translate(calc(-50% + ' + (dx * reach) + 'px),calc(-50% + ' + (dy * reach) + 'px)) rotate(' + deg + 'deg) scaleY(1)' }
+      ], { duration: 620, easing: 'cubic-bezier(.15,.7,.3,1)' }).onfinish = (function (el) { return function () { el.remove(); }; })(sp);
+    }
+  }
+  (function () {
+    var lock = false;
+    document.addEventListener('mouseover', function (e) {
+      var card = e.target.closest && e.target.closest('.wcard');
+      if (!card || lock) return;
+      // ignore moves between children of the same card
+      if (e.relatedTarget && card.contains(e.relatedTarget)) return;
+      lock = true; fireworks(card); setTimeout(function () { lock = false; }, 320);
+    });
   })();
 
   function mk(z) {
