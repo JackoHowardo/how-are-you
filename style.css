@@ -309,7 +309,8 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 @media (max-width:480px){ .workgrid.wg3,.workgrid.wg2{ grid-template-columns:1fr; } }
 
 /* click-to-expand "how are you?" intro */
-.intro .lead-col .open-line{ margin:0 0 .15em; color:var(--ink); font-size:1.15rem; }
+.intro .lead-col .open-line{ margin:0 0 .1em; color:var(--ink); font-size:1.15rem; }
+.intro .lead-col .open-q{ margin:0; font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(1.25rem,2.8vw,1.9rem); line-height:1.1; color:var(--ink); }
 .hay-expand{ font-family:var(--serif); font-style:italic; font-size:clamp(1.5rem,3.4vw,2.5rem); line-height:1.05; color:var(--ink); background:none; border:0; padding:0 0 .06em; margin:.1em 0 0; cursor:pointer; position:relative; display:inline-flex; align-items:center; gap:.4em; border-bottom:2px solid var(--red); transition:color .25s ease; }
 .hay-expand:hover{ color:var(--red); }
 .hay-expand .pm{ font-family:var(--mono); font-style:normal; font-size:.42em; width:1.7em; height:1.7em; border:1.5px solid currentColor; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; line-height:1; transition:transform .35s cubic-bezier(.6,.05,.2,1); }
@@ -342,6 +343,13 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 @media (max-width:860px){ .p-body .lab,.p-body .copy{ grid-column:1 / span 12; } .p-body .lab{ margin-bottom:10px; } }
 
 /* headline "how are you?" is itself the click-to-expand trigger */
-.intro h1 .hay-q{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:inherit; line-height:inherit; letter-spacing:inherit; color:inherit; background:none; border:0; padding:0; margin:0; cursor:pointer; position:relative; display:inline-block; -webkit-appearance:none; appearance:none; }
-.intro h1 .hay-q::after{ content:""; position:absolute; left:0; right:0; bottom:-.02em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .5s cubic-bezier(.6,.05,.2,1); }
-.intro h1 .hay-q:hover::after,.intro h1 .hay-q:focus-visible::after,.intro h1 .hay-q[aria-expanded="true"]::after{ transform:scaleX(1); }
+.intro h1 .hay-q{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:inherit; line-height:inherit; letter-spacing:inherit; color:inherit; background:none; border:0; padding:0; margin:0; cursor:pointer; display:inline; -webkit-appearance:none; appearance:none; }
+.intro h1 .hay-q .qt{ position:relative; }
+.intro h1 .hay-q .qt::after{ content:""; position:absolute; left:0; right:0; bottom:-.02em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .5s cubic-bezier(.6,.05,.2,1); }
+.intro h1 .hay-q:hover .qt::after,.intro h1 .hay-q:focus-visible .qt::after,.intro h1 .hay-q[aria-expanded="true"] .qt::after{ transform:scaleX(1); }
+/* plus circle drawn with two centred bars, so the + is perfectly centred */
+.intro h1 .hay-pm{ position:relative; display:inline-block; vertical-align:middle; width:.55em; height:.55em; margin-left:.3em; border:2px solid var(--red); border-radius:50%; }
+.intro h1 .hay-pm::before,.intro h1 .hay-pm::after{ content:""; position:absolute; top:50%; left:50%; background:var(--red); }
+.intro h1 .hay-pm::before{ width:.26em; height:2px; transform:translate(-50%,-50%); }
+.intro h1 .hay-pm::after{ width:2px; height:.26em; transform:translate(-50%,-50%); transition:transform .3s ease; }
+.intro h1 .hay-q[aria-expanded="true"] .hay-pm::after{ transform:translate(-50%,-50%) scaleY(0); }
