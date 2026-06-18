@@ -1,4 +1,4 @@
-/* How Are You? — Studio of Jack Howard
+/* How Are You? - Studio of Jack Howard
    off-white paper / off-black ink + red, yellow, blue accents */
 :root{
   --paper:#ECE7DD; --paper-2:#F3EFE8; --paper-edge:#E2DCD0;
@@ -143,7 +143,7 @@ figure figcaption{ font-family:var(--serif); font-style:italic; font-size:.92rem
 }
 @media (max-width:520px){ .swatches i{ width:15px; height:15px; } }
 
-/* ====== v2 — Studio / Services two-sided site ====== */
+/* ====== v2 - Studio / Services two-sided site ====== */
 .toggle{ display:inline-flex; align-items:center; border:1.5px solid var(--ink); border-radius:999px; padding:3px; background:var(--paper-2); position:relative; }
 .toggle a{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; padding:7px 15px; border-radius:999px; color:var(--ink-2); transition:color .25s; position:relative; z-index:1; white-space:nowrap; }
 .toggle a .ic{ font-size:.9em; margin-right:5px; }
@@ -206,7 +206,7 @@ button.send:hover{ background:var(--red); } button.send:active{ transform:transl
 .foot .dont:hover{ color:var(--red); }
 
 
-/* ===== v3 — Camden-style fonts, tinted pages, uniform grid, full-bleed film ===== */
+/* ===== v3 - Camden-style fonts, tinted pages, uniform grid, full-bleed film ===== */
 body{ background-color:var(--page-bg, var(--paper)); background-image:url(paper-texture.png); background-repeat:repeat; background-position:top left; }
 .topbar{ background:color-mix(in srgb, var(--page-bg, var(--paper)) 88%, transparent); }
 /* lighter, signage-like headings (New Rail Alphabet is light) */
@@ -237,10 +237,10 @@ h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
 .filmnote a:hover{ color:var(--red); }
 
 
-/* ===== v4 — reactive grain, services vibe, active-tab star ===== */
+/* ===== v4 - reactive grain, services vibe, active-tab star ===== */
 /* interactive dot canvas (studio + default) */
 
-/* Services side — plain paper, same colour as studio, no texture */
+/* Services side - plain paper, same colour as studio, no texture */
 
 /* active-tab star: left of Studio, right of Services, a touch smaller */
 .toggle a .ic{ display:none; }
@@ -270,7 +270,7 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 .brand .bmark.a-pop{ animation:hay-pop .5s cubic-bezier(.2,.8,.2,1.2); }
 .brand .bmark{ cursor:grab; }
 
-/* custom cursor only — hide OS pointer (restore on touch) */
+/* custom cursor only - hide OS pointer (restore on touch) */
 *{ cursor:none; }
 .brand .bmark{ cursor:none; }
 @media (hover:none),(pointer:coarse){ *{ cursor:auto; } }
@@ -281,11 +281,11 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 .cursor-dot svg{ width:100%; height:100%; display:block; overflow:visible; }
 .cursor-dot.big{ transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1.3); opacity:1; }
 
-/* cleaner Selected Work / Commissions heading — no rule line, no dot, smaller */
+/* cleaner Selected Work / Commissions heading - no rule line, no dot, smaller */
 .sec-head.sh-plain{ border-top:none; padding-top:0; margin-top:clamp(28px,4vw,52px); }
 .sec-head.sh-plain h2{ font-size:clamp(1rem,1.8vw,1.25rem); font-weight:500; letter-spacing:0; }
 
-/* v5 cursor — directional arrow, tip is the click hotspot */
+/* v5 cursor - directional arrow, tip is the click hotspot */
 .cursor-dot{ width:30px; height:24px; background:none; box-shadow:none; border-radius:0; mix-blend-mode:normal; transform:translate(-27px,-12px); transition:none; }
 .cursor-dot .arrow{ display:block; width:100%; height:100%; transform-origin:27px 12px; transform:rotate(var(--rot,0deg)); transition:transform .14s ease; }
 .cursor-dot svg{ width:100%; height:100%; display:block; overflow:visible; }
@@ -298,45 +298,4 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 .intro h1:hover em::after{ transform:scaleX(1); }
 /* smiley faces popping from the portrait */
 .hay-smiley{ position:fixed; z-index:9995; width:26px; height:26px; pointer-events:none; }
-.hay-smiley svg{ width:100%; height:100%; display:block; }
-/* firework line sparks off project cards */
-.hay-spark{ position:fixed; z-index:9994; width:2px; border-radius:2px; pointer-events:none; transform-origin:center; }
-
-/* ===== v6 — content pass: 3-col grid + click-to-expand intro ===== */
-.workgrid.wg3{ grid-template-columns:repeat(3,1fr); }
-.workgrid.wg2{ grid-template-columns:repeat(2,1fr); }
-@media (max-width:860px){ .workgrid.wg3{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:480px){ .workgrid.wg3,.workgrid.wg2{ grid-template-columns:1fr; } }
-
-/* click-to-expand "how are you?" intro */
-.intro .lead-col .open-line{ margin:0 0 .15em; color:var(--ink); font-size:1.15rem; }
-.hay-expand{ font-family:var(--serif); font-style:italic; font-size:clamp(1.5rem,3.4vw,2.5rem); line-height:1.05; color:var(--ink); background:none; border:0; padding:0 0 .06em; margin:.1em 0 0; cursor:pointer; position:relative; display:inline-flex; align-items:center; gap:.4em; border-bottom:2px solid var(--red); transition:color .25s ease; }
-.hay-expand:hover{ color:var(--red); }
-.hay-expand .pm{ font-family:var(--mono); font-style:normal; font-size:.42em; width:1.7em; height:1.7em; border:1.5px solid currentColor; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; line-height:1; transition:transform .35s cubic-bezier(.6,.05,.2,1); }
-.hay-expand[aria-expanded="true"] .pm{ transform:rotate(135deg); }
-.intro-more{ overflow:hidden; max-height:0; opacity:0; transition:max-height .7s cubic-bezier(.2,.8,.2,1), opacity .5s ease, margin-top .5s ease; }
-.intro-more.open{ max-height:1600px; opacity:1; margin-top:1.1em; }
-.intro-more p{ margin:0 0 1.05em; color:var(--ink-2); font-size:1.06rem; line-height:1.62; }
-.intro-more p:last-child{ margin-bottom:0; }
-
-/* project page: pull-quote / philosophy block + problem-solving list */
-.p-quote{ position:relative; z-index:1; margin-top:clamp(40px,6vw,80px); display:grid; grid-template-columns:repeat(12,1fr); }
-.p-quote .inner{ grid-column:2 / span 9; }
-.p-quote .lab{ font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:18px; }
-.p-quote p{ font-family:var(--serif); font-style:italic; font-size:clamp(1.2rem,2.6vw,1.85rem); line-height:1.4; color:var(--ink); margin:0 0 .7em; }
-.p-quote p:last-child{ margin-bottom:0; }
-.p-solve{ position:relative; z-index:1; margin-top:clamp(40px,6vw,80px); display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(20px,4vw,56px); }
-.p-solve .lab{ grid-column:1 / span 3; font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
-.p-solve .items{ grid-column:4 / span 8; }
-.p-solve .item{ border-top:1px solid var(--paper-edge); padding:18px 0; }
-.p-solve .item:first-child{ border-top:none; padding-top:0; }
-.p-solve .item h4{ font-size:1.08rem; font-weight:600; margin:0 0 .4em; }
-.p-solve .item p{ margin:0; color:var(--ink-2); font-size:.98rem; line-height:1.58; }
-.p-solve .item p .lead{ color:var(--ink); font-weight:500; }
-@media (max-width:860px){ .p-quote .inner{ grid-column:1 / span 12; } .p-solve .lab,.p-solve .items{ grid-column:1 / span 12; } .p-solve .lab{ margin-bottom:10px; } }
-.p-body{ position:relative; z-index:1; margin-top:clamp(34px,5vw,70px); display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(20px,4vw,56px); }
-.p-body .lab{ grid-column:1 / span 3; font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
-.p-body .copy{ grid-column:4 / span 8; }
-.p-body .copy p{ margin:0 0 1.05em; color:var(--ink-2); font-size:1.04rem; line-height:1.62; }
-.p-body .copy p:last-child{ margin-bottom:0; }
-@media (max-width:860px){ .p-body .lab,.p-body .copy{ grid-column:1 / span 12; } .p-body .lab{ margin-bottom:10px; } }
+.hay-smiley svg{ width:100%; height:100%; display:b

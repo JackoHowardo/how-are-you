@@ -1,4 +1,4 @@
-/* How Are You? — interactions (no dependencies) */
+/* How Are You? - interactions (no dependencies) */
 (function () {
   var body = document.body;
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
@@ -52,7 +52,7 @@
     e.preventDefault();
     var g = function (id) { var el = cform.querySelector('#' + id); return el ? el.value : ''; };
     var n = g('name'), em = g('email'), msg = g('message');
-    var bd = encodeURIComponent(msg + '\n\n— ' + n + (em ? ' (' + em + ')' : ''));
+    var bd = encodeURIComponent(msg + '\n\n- ' + n + (em ? ' (' + em + ')' : ''));
     window.location.href = 'mailto:jack.howard1993@gmail.com?subject=' + encodeURIComponent('Hello from ' + (n || 'your website')) + '&body=' + bd;
   });
 
@@ -89,7 +89,7 @@
   if (reduce || !fine) { startCycle(); return; }
 
   /* ===================================================================
-     Playful layer — cursor, flecks, throwable dot
+     Playful layer - cursor, flecks, throwable dot
      =================================================================== */
   var cssv = getComputedStyle(document.body);
   var PAL = [
@@ -216,7 +216,7 @@
   }
   size();
 
-  /* flecks — page-positioned, drift when the cursor moves through them */
+  /* flecks - page-positioned, drift when the cursor moves through them */
   var flecks = [];
   var FK = 0.012, FD = 0.9, FINF = 30, FIMP = 1.9, FCLAMP = 46;
   function buildFlecks() {
@@ -226,7 +226,7 @@
   }
   buildFlecks();
 
-  /* throwable dots — PAGE coordinates */
+  /* throwable dots - PAGE coordinates */
   var dots = [], trails = [];
   var R = 7, G = 0.5, EW = 0.6, EF = 0.45, MAXD = 34, MAXT = 2600;
   var pointer = { x: -999, y: -999 };
@@ -305,48 +305,4 @@
       if (d.y < R) { d.y = R; d.vy = -d.vy * EW; } else if (d.y > floor) { d.y = floor; d.vy = -d.vy * EF; d.vx *= 0.9; }
       var spd = Math.sqrt(d.vx * d.vx + d.vy * d.vy);
       if (spd > 1.2) { trails.push({ x1: ox, y1: oy, x2: d.x, y2: d.y, c: d.c, a: 0.5 }); if (trails.length > MAXT) trails.shift(); }
-      if (spd > 0.4) { moving = true; d.low = 0; } else { d.low++; if (d.low > 18 && d.header && !d.notified && window.__hayInPlay) { d.notified = true; respawn(); } }
-    }
-    for (var a = 0; a < dots.length; a++) for (var b = a + 1; b < dots.length; b++) {
-      var p = dots[a], q = dots[b], dxx = q.x - p.x, dyy = q.y - p.y, dd = Math.sqrt(dxx * dxx + dyy * dyy), mn = R * 2;
-      if (dd > 0 && dd < mn) {
-        var nx2 = dxx / dd, ny2 = dyy / dd, ov = mn - dd;
-        if (!p.held) { p.x -= nx2 * ov / 2; p.y -= ny2 * ov / 2; }
-        if (!q.held) { q.x += nx2 * ov / 2; q.y += ny2 * ov / 2; }
-        var rvx = q.vx - p.vx, rvy = q.vy - p.vy, vn = rvx * nx2 + rvy * ny2;
-        if (vn < 0) { var imp = -vn * 0.5; if (!p.held) { p.vx -= imp * nx2; p.vy -= imp * ny2; } if (!q.held) { q.vx += imp * nx2; q.vy += imp * ny2; } moving = true; }
-      }
-    }
-    for (var t = trails.length - 1; t >= 0; t--) { trails[t].a *= 0.997; if (trails[t].a < 0.03) trails.splice(t, 1); }
-    return moving;
-  }
-  function draw() {
-    var scy = window.scrollY;
-    fxc.clearRect(0, 0, W, H); fxc.globalAlpha = 0.5;
-    for (var i = 0; i < flecks.length; i++) {
-      var f = flecks[i], y = f.y - scy + f.oy; if (y < -8 || y > H + 8) continue;
-      fxc.fillStyle = f.c; fxc.beginPath(); fxc.arc(f.x + f.ox, y, 1.8, 0, 6.2832); fxc.fill();
-    }
-    fxc.globalAlpha = 1;
-    txc.clearRect(0, 0, W, H); txc.lineWidth = 2.4; txc.lineCap = 'round';
-    for (var t = 0; t < trails.length; t++) {
-      var s = trails[t], y1 = s.y1 - scy, y2 = s.y2 - scy;
-      if ((y1 < -10 && y2 < -10) || (y1 > H + 10 && y2 > H + 10)) continue;
-      txc.globalAlpha = s.a; txc.strokeStyle = s.c; txc.beginPath(); txc.moveTo(s.x1, y1); txc.lineTo(s.x2, y2); txc.stroke();
-    }
-    txc.globalAlpha = 1;
-    dxc.clearRect(0, 0, W, H);
-    for (var k = 0; k < dots.length; k++) {
-      var d = dots[k], dy = d.y - scy; if (dy < -20 || dy > H + 20) continue;
-      dxc.fillStyle = d.c; dxc.beginPath(); dxc.arc(d.x, dy, R, 0, 6.2832); dxc.fill();
-      dxc.lineWidth = 1.5; dxc.strokeStyle = 'rgba(34,33,31,.85)'; dxc.stroke();
-    }
-  }
-  function frame() {
-    var moving = step(); draw();
-    var active = moving || dragging || (performance.now() - lastInput < 200);
-    if (active) raf = requestAnimationFrame(frame); else raf = null;
-  }
-  function start() { if (!raf) raf = requestAnimationFrame(frame); }
-  start();
-})();
+      if (spd > 0.4) { moving = true; d.low = 0; } else { d.low++; if (d.low > 18 && d.header &&
