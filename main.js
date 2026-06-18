@@ -76,6 +76,23 @@
     });
   });
 
+  /* click any project image to open it larger (lightbox) */
+  (function () {
+    var lb = document.createElement('div'); lb.className = 'lightbox';
+    lb.innerHTML = '<button class="lb-close" type="button" aria-label="Close">✕</button><img alt="">';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img');
+    function close() { lb.classList.remove('open'); lbImg.removeAttribute('src'); }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('.figs figure img, .intro .photo img');
+      if (!t) return;
+      lbImg.src = t.currentSrc || t.src; lbImg.alt = t.alt || '';
+      lb.classList.add('open');
+    });
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+
   /* brand-mark colour cycle (shared) */
   function startCycle() {
     var b = document.querySelector('.brand .bmark'); if (!b) return null;

@@ -242,11 +242,7 @@ h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
 
 /* Services side - plain paper, same colour as studio, no texture */
 
-/* active-tab star: left of Studio, right of Services, a touch smaller */
 .toggle a .ic{ display:none; }
-.toggle a.t-studio::before, .toggle a.t-services::after{ font-size:.72em; vertical-align:middle; display:inline-block; }
-body[data-side="studio"] .toggle a.t-studio::before{ content:"\2736\00a0"; }
-body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 
 /* brand mark colour-cycle animations */
 
@@ -354,3 +350,10 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 .intro h1 .hay-pm::before{ width:.26em; height:2px; transform:translate(-50%,-50%); }
 .intro h1 .hay-pm::after{ width:2px; height:.26em; transform:translate(-50%,-50%); transition:transform .3s ease; }
 .intro h1 .hay-q[aria-expanded="true"] .hay-pm::after{ transform:translate(-50%,-50%) scaleY(0); }
+
+/* click any project image to expand it (lightbox) */
+.figs figure img,.intro .photo img{ cursor:zoom-in; }
+.lightbox{ position:fixed; inset:0; z-index:10000; display:none; align-items:center; justify-content:center; padding:clamp(16px,4vmin,56px); background:rgba(34,33,31,.92); cursor:zoom-out; }
+.lightbox.open{ display:flex; }
+.lightbox img{ max-width:100%; max-height:100%; width:auto; height:auto; box-shadow:0 12px 50px rgba(0,0,0,.45); }
+.lightbox .lb-close{ position:absolute; top:18px; right:22px; font-family:var(--mono); font-size:1.6rem; line-height:1; color:var(--paper); background:none; border:0; cursor:pointer; }
