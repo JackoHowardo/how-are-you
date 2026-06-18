@@ -340,3 +340,8 @@ body[data-side="services"] .toggle a.t-services::after{ content:"\00a0\2736"; }
 .p-body .copy p{ margin:0 0 1.05em; color:var(--ink-2); font-size:1.04rem; line-height:1.62; }
 .p-body .copy p:last-child{ margin-bottom:0; }
 @media (max-width:860px){ .p-body .lab,.p-body .copy{ grid-column:1 / span 12; } .p-body .lab{ margin-bottom:10px; } }
+
+/* headline "how are you?" is itself the click-to-expand trigger */
+.intro h1 .hay-q{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:inherit; line-height:inherit; letter-spacing:inherit; color:inherit; background:none; border:0; padding:0; margin:0; cursor:pointer; position:relative; display:inline-block; -webkit-appearance:none; appearance:none; }
+.intro h1 .hay-q::after{ content:""; position:absolute; left:0; right:0; bottom:-.02em; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left center; transition:transform .5s cubic-bezier(.6,.05,.2,1); }
+.intro h1 .hay-q:hover::after,.intro h1 .hay-q:focus-visible::after,.intro h1 .hay-q[aria-expanded="true"]::after{ transform:scaleX(1); }

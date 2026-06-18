@@ -67,7 +67,7 @@
   });
 
   /* click-to-expand "how are you?" intro (works on all devices) */
-  document.querySelectorAll('.hay-expand').forEach(function (btn) {
+  document.querySelectorAll('.hay-expand, .hay-q').forEach(function (btn) {
     var more = document.getElementById(btn.getAttribute('aria-controls'));
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') === 'true';
