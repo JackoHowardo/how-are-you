@@ -66,6 +66,16 @@
     b.addEventListener('click', function () { window.__hay_toast(dontLines[Math.min(pressed, dontLines.length - 1)]); pressed++; });
   });
 
+  /* click-to-expand "how are you?" intro (works on all devices) */
+  document.querySelectorAll('.hay-expand').forEach(function (btn) {
+    var more = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      if (more) more.classList.toggle('open', !open);
+    });
+  });
+
   /* brand-mark colour cycle (shared) */
   function startCycle() {
     var b = document.querySelector('.brand .bmark'); if (!b) return null;
