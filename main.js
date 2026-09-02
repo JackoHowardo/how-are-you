@@ -410,3 +410,25 @@
     btn.style.display = 'none';
   });
 })();
+
+/* The dot scrolls away with the page while the wordmark + nav stay put;
+   it rests in place while the header band is at the top, then drifts up. */
+(function () {
+  var bmark = document.querySelector('.brand .bmark');
+  var topbar = document.querySelector('.topbar');
+  if (!bmark) return;
+  var wrap = document.createElement('span');
+  wrap.style.cssText = 'display:inline-flex; will-change:transform;';
+  bmark.parentNode.insertBefore(wrap, bmark); wrap.appendChild(bmark);
+  var ticking = false;
+  function upd() {
+    ticking = false;
+    var hb = topbar ? topbar.offsetHeight : 64;
+    var y = window.pageYOffset;
+    var t = y <= hb ? 0 : -(y - hb);        // stays put near the top, then scrolls with the page
+    wrap.style.transform = 'translateY(' + t + 'px)';
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+  window.addEventListener('resize', upd);
+  upd();
+})();
