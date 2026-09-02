@@ -411,22 +411,27 @@
   });
 })();
 
-/* The dot scrolls away with the page while the wordmark + nav stay put;
-   it rests in place while the header band is at the top, then drifts up. */
+/* The wordmark + nav slide away as you scroll down and return on scroll up;
+   the dot stays put the whole time (it counter-moves so it never leaves the corner). */
 (function () {
   var bmark = document.querySelector('.brand .bmark');
   var topbar = document.querySelector('.topbar');
-  if (!bmark) return;
+  if (!bmark || !topbar) return;
   var wrap = document.createElement('span');
   wrap.style.cssText = 'display:inline-flex; will-change:transform;';
   bmark.parentNode.insertBefore(wrap, bmark); wrap.appendChild(bmark);
-  var ticking = false;
+  topbar.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1)';
+  wrap.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1)';
+  var lastY = window.pageYOffset, hidden = false, ticking = false;
   function upd() {
     ticking = false;
-    var hb = topbar ? topbar.offsetHeight : 64;
-    var y = window.pageYOffset;
-    var t = y <= hb ? 0 : -(y - hb);        // stays put near the top, then scrolls with the page
-    wrap.style.transform = 'translateY(' + t + 'px)';
+    var y = window.pageYOffset, hb = topbar.offsetHeight;
+    if (y > hb * 1.5 && y > lastY + 2) hidden = true;      // scrolling down, past the header
+    else if (y < lastY - 2 || y <= hb) hidden = false;     // scrolling up, or back at the top
+    lastY = y;
+    var off = hidden ? hb + 24 : 0;
+    topbar.style.transform = 'translateY(' + (-off) + 'px)';  // wordmark + nav slide up / return
+    wrap.style.transform = 'translateY(' + off + 'px)';       // dot counter-moves, so it stays in place
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
   window.addEventListener('resize', upd);
