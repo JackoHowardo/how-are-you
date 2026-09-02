@@ -46,7 +46,28 @@
     });
   });
 
-  /* contact form submits directly to Formspree (endpoint set in contact.html) */
+  /* contact form -> submit to Formspree in the background, show an inline message */
+  var cform = document.getElementById('contact-form');
+  if (cform) cform.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('form-msg');
+    var btn = cform.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
+    if (msg) { msg.className = 'form-msg'; msg.textContent = 'Sending…'; }
+    fetch(cform.action, { method: 'POST', body: new FormData(cform), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (r.ok) {
+          cform.reset();
+          if (msg) { msg.className = 'form-msg ok'; msg.textContent = 'Sent! Talk soon :)'; }
+        } else {
+          if (msg) { msg.className = 'form-msg err'; msg.innerHTML = 'Something went wrong. Please send again, or email <a href="mailto:hello@howareyou.studio">hello@howareyou.studio</a>'; }
+        }
+      })
+      .catch(function () {
+        if (msg) { msg.className = 'form-msg err'; msg.innerHTML = 'Something went wrong. Please send again, or email <a href="mailto:hello@howareyou.studio">hello@howareyou.studio</a>'; }
+      })
+      .then(function () { if (btn) btn.disabled = false; });
+  });
 
   /* cheeky toast + do-not-press */
   var toast = document.createElement('div'); toast.className = 'toast'; document.body.appendChild(toast);
@@ -403,25 +424,31 @@
   });
 })();
 
-/* The header (wordmark + nav) stays fixed at the top and never moves;
-   only the dot moves - it rides the page up and away as you scroll down,
-   and slides back into its place beside the wordmark as you return to the top. */
+/* The header (wordmark + nav) scrolls with the page. The dot travels with the
+   header until the header reaches the top, then the dot pins to the top of the
+   screen. Scroll back up and it settles into its place beside the wordmark. */
 (function () {
   var bmark = document.querySelector('.brand .bmark');
   var topbar = document.querySelector('.topbar');
   if (!bmark || !topbar) return;
-  var wrap = document.createElement('span');
-  wrap.style.cssText = 'display:inline-flex; will-change:transform;';
-  bmark.parentNode.insertBefore(wrap, bmark); wrap.appendChild(bmark);
+  var tb = topbar.getBoundingClientRect(), bm = bmark.getBoundingClientRect();
+  var offLeft = bm.left - tb.left;          // dot's position inside the header (constant)
+  var offTop = bm.top - tb.top;
+  var spacer = document.createElement('span');
+  spacer.style.cssText = 'display:inline-block; flex:0 0 auto; width:' + bm.width + 'px; height:' + bm.height + 'px;';
+  bmark.parentNode.insertBefore(spacer, bmark);   // reserve its spot so the wordmark doesn't shift
+  bmark.style.position = 'fixed';
+  bmark.style.margin = '0';
+  bmark.style.zIndex = '60';
   var ticking = false;
   function upd() {
     ticking = false;
-    var hb = topbar.offsetHeight;
-    var y = window.pageYOffset;
-    var t = y <= hb ? 0 : -(y - hb);       // in place near the top, then travels up with the page
-    wrap.style.transform = 'translateY(' + t + 'px)';
+    var r = topbar.getBoundingClientRect();
+    bmark.style.left = (r.left + offLeft) + 'px';
+    bmark.style.top = (offTop + Math.max(0, r.top)) + 'px';   // rides the header down; pins at the top
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
   window.addEventListener('resize', upd);
+  window.addEventListener('load', upd);
   upd();
 })();
