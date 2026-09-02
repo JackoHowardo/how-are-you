@@ -46,15 +46,7 @@
     });
   });
 
-  /* contact form -> opens email (no backend needed) */
-  var cform = document.getElementById('contact-form');
-  if (cform) cform.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var g = function (id) { var el = cform.querySelector('#' + id); return el ? el.value : ''; };
-    var n = g('name'), em = g('email'), msg = g('message');
-    var bd = encodeURIComponent(msg + '\n\n- ' + n + (em ? ' (' + em + ')' : ''));
-    window.location.href = 'mailto:hello@howareyou.studio?subject=' + encodeURIComponent('Hello from ' + (n || 'your website')) + '&body=' + bd;
-  });
+  /* contact form submits directly to Formspree (endpoint set in contact.html) */
 
   /* cheeky toast + do-not-press */
   var toast = document.createElement('div'); toast.className = 'toast'; document.body.appendChild(toast);
@@ -411,8 +403,9 @@
   });
 })();
 
-/* The wordmark + nav slide away as you scroll down and return on scroll up;
-   the dot stays put the whole time (it counter-moves so it never leaves the corner). */
+/* The header (wordmark + nav) stays fixed at the top and never moves;
+   only the dot moves - it rides the page up and away as you scroll down,
+   and slides back into its place beside the wordmark as you return to the top. */
 (function () {
   var bmark = document.querySelector('.brand .bmark');
   var topbar = document.querySelector('.topbar');
@@ -420,18 +413,13 @@
   var wrap = document.createElement('span');
   wrap.style.cssText = 'display:inline-flex; will-change:transform;';
   bmark.parentNode.insertBefore(wrap, bmark); wrap.appendChild(bmark);
-  topbar.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1)';
-  wrap.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1)';
-  var lastY = window.pageYOffset, hidden = false, ticking = false;
+  var ticking = false;
   function upd() {
     ticking = false;
-    var y = window.pageYOffset, hb = topbar.offsetHeight;
-    if (y > hb * 1.5 && y > lastY + 2) hidden = true;      // scrolling down, past the header
-    else if (y < lastY - 2 || y <= hb) hidden = false;     // scrolling up, or back at the top
-    lastY = y;
-    var off = hidden ? hb + 24 : 0;
-    topbar.style.transform = 'translateY(' + (-off) + 'px)';  // wordmark + nav slide up / return
-    wrap.style.transform = 'translateY(' + off + 'px)';       // dot counter-moves, so it stays in place
+    var hb = topbar.offsetHeight;
+    var y = window.pageYOffset;
+    var t = y <= hb ? 0 : -(y - hb);       // in place near the top, then travels up with the page
+    wrap.style.transform = 'translateY(' + t + 'px)';
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
   window.addEventListener('resize', upd);

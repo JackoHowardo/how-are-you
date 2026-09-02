@@ -48,7 +48,7 @@
     </p>
   </div>
 
-  <form id="contact-form">
+  <form id="contact-form" action="https://formspree.io/f/xnpqvnoy" method="POST">
     <div class="field">
       <label for="name">Your name</label>
       <input id="name" name="name" type="text" required autocomplete="name">
@@ -61,6 +61,8 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" required placeholder="What are you trying to make?"></textarea>
     </div>
+    <input type="hidden" name="_subject" value="New message from howareyou.studio">
+    <input type="hidden" name="_next" value="https://howareyou.studio/contact-thanks.html">
     <button class="send" type="submit">Send it →</button>
   </form>
 </div>
@@ -69,7 +71,7 @@
   <img class="stamp" src="hay-stamp.png" alt="HAY SS1 stamp">
   <div class="fmeta">
     How Are You? · Studio of Jack Howard · Cork, Ireland<br>
-    &copy; <span data-year>2026</span> · <button class="dont" data-dont type="button">do not press</button>
+    &copy; <span data-year>2026</span>
   </div>
   <a class="top-link" href="index.html">Home ↑</a>
 </footer>
