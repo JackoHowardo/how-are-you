@@ -13,9 +13,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>#opener{display:none!important}</style></noscript>
 </head>
 <body data-side="studio">
 
+<!-- OPENER · scroll-through symbol sequence (homepage only) -->
+<section class="opener" id="opener" aria-label="How Are You?">
+  <div class="opener-sticky">
+    <p class="op-line"><span class="op-dot" id="opDot" aria-hidden="true"></span><span class="op-hay">How&nbsp;Are&nbsp;You</span><span class="op-tail" aria-hidden="true"><span class="op-symbols" id="opSymbols"><img class="op-sym op-img" src="sym-question.png" alt=""><img class="op-sym op-img" src="sym-people.png" alt=""><img class="op-sym op-img" src="sym-land.png" alt=""><img class="op-sym op-img" src="sym-making.png" alt=""></span><span class="op-qmark" id="opQ">?</span><em class="op-label" id="opLabel"></em></span></p>
+    <template hidden>
+      <span class="op-sym on"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g stroke="#2E3D9B" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="63.0" y1="50.0" x2="93.0" y2="50.0"/><line x1="61.3" y1="56.5" x2="87.2" y2="71.5"/><line x1="56.5" y1="61.3" x2="71.5" y2="87.2"/><line x1="50.0" y1="63.0" x2="50.0" y2="93.0"/><line x1="43.5" y1="61.3" x2="28.5" y2="87.2"/><line x1="38.7" y1="56.5" x2="12.8" y2="71.5"/><line x1="37.0" y1="50.0" x2="7.0" y2="50.0"/><line x1="38.7" y1="43.5" x2="12.8" y2="28.5"/><line x1="43.5" y1="38.7" x2="28.5" y2="12.8"/><line x1="50.0" y1="37.0" x2="50.0" y2="7.0"/><line x1="56.5" y1="38.7" x2="71.5" y2="12.8"/><line x1="61.3" y1="43.5" x2="87.2" y2="28.5"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="hayCl"><circle cx="50" cy="50" r="35"/></clipPath></defs><g clip-path="url(#hayCl)" transform="rotate(45 50 50)" stroke="#C98A1B" stroke-width="2.4" fill="none"><line x1="18" y1="12" x2="18" y2="88"/><line x1="12" y1="18" x2="88" y2="18"/><line x1="34" y1="12" x2="34" y2="88"/><line x1="12" y1="34" x2="88" y2="34"/><line x1="50" y1="12" x2="50" y2="88"/><line x1="12" y1="50" x2="88" y2="50"/><line x1="66" y1="12" x2="66" y2="88"/><line x1="12" y1="66" x2="88" y2="66"/><line x1="82" y1="12" x2="82" y2="88"/><line x1="12" y1="82" x2="88" y2="82"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g stroke="#B5432C" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="32" y1="28" x2="34.7" y2="72"/><line x1="41" y1="28" x2="43.7" y2="72"/><line x1="50" y1="28" x2="47.3" y2="72"/><line x1="59" y1="28" x2="56.5" y2="72"/><line x1="68" y1="28" x2="70.0" y2="72"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,12 88,50 50,88 12,50" fill="none" stroke="#5C6B44" stroke-width="2.4" stroke-linejoin="round"/><g stroke="#5C6B44" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="56.0" y1="50.0" x2="74.0" y2="50.0"/><line x1="54.2" y1="54.2" x2="67.0" y2="67.0"/><line x1="50.0" y1="56.0" x2="50.0" y2="74.0"/><line x1="45.8" y1="54.2" x2="33.0" y2="67.0"/><line x1="44.0" y1="50.0" x2="26.0" y2="50.0"/><line x1="45.8" y1="45.8" x2="33.0" y2="33.0"/><line x1="50.0" y1="44.0" x2="50.0" y2="26.0"/><line x1="54.2" y1="45.8" x2="67.0" y2="33.0"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,12 88,50 50,88 12,50" fill="none" stroke="#A8622B" stroke-width="2.4" stroke-linejoin="round"/><g stroke="#A8622B" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="40" y1="28" x2="42.7" y2="72"/><line x1="50" y1="28" x2="52.7" y2="72"/><line x1="60" y1="28" x2="57.3" y2="72"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g stroke="#715175" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="60.0" y1="50.0" x2="90.0" y2="50.0"/><line x1="57.1" y1="57.1" x2="78.3" y2="78.3"/><line x1="50.0" y1="60.0" x2="50.0" y2="90.0"/><line x1="42.9" y1="57.1" x2="21.7" y2="78.3"/><line x1="40.0" y1="50.0" x2="10.0" y2="50.0"/><line x1="42.9" y1="42.9" x2="21.7" y2="21.7"/><line x1="50.0" y1="40.0" x2="50.0" y2="10.0"/><line x1="57.1" y1="42.9" x2="78.3" y2="21.7"/></g><g stroke="#715175" stroke-width="2.4" stroke-linecap="round" fill="none"><line x1="44" y1="28" x2="46.7" y2="72"/><line x1="56" y1="28" x2="58.7" y2="72"/></g></svg></span>
+      <span class="op-sym"><svg class="op-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="16" fill="none" stroke="#22211F" stroke-width="2.8"/><circle cx="50" cy="50" r="26" fill="none" stroke="#22211F" stroke-width="2.8"/><circle cx="50" cy="50" r="36" fill="none" stroke="#22211F" stroke-width="2.8"/><circle cx="50" cy="50" r="8" fill="#22211F"/></svg></span>
+</span></template>
+    <button class="op-skip" id="opSkip" type="button">Skip ↓</button>
+  </div>
+</section>
+
+<div id="site">
 <header class="topbar">
   <a class="brand" href="index.html" aria-label="How Are You?, home">
     <span class="bmark" aria-hidden="true"></span>
@@ -34,73 +53,43 @@
 
 <!-- STUDIO -->
 <div class="side side-studio">
-  <section class="intro wrap">
-    <span class="kick">Studio, architectural research &amp; design</span>
-    <div class="grid2">
-      <div class="lead-col">
-        <h1>Design that begins by asking <button class="hay-q" type="button" aria-expanded="false" aria-controls="intro-more"><span class="qt">how are you?</span><span class="hay-pm" aria-hidden="true"></span></button></h1>
-        <div class="intro-more" id="intro-more">
-          <p class="open-line">I try to start every project the same way.</p>
-          <p class="open-q">How are you?</p>
-          <p>Not just to the people using a place, but to the place itself.</p>
-          <p>Before I begin designing, I try to understand what is already there. What gives this place its character? What challenges does it face? What does it need?</p>
-          <p>Every project starts by listening to the people, the place, the materials and the wider environment before deciding what should be added. Whether the outcome is a piece of furniture, an architectural proposal or a public intervention, my aim is always the same: to leave a place a little better than I found it.</p>
-          <p>I believe some of the best design solutions come from approaching problems with curiosity and a sense of play. Play invites people in. It sparks curiosity, encourages exploration and helps people connect more deeply with places and with each other. That's why the projects I'm most drawn to are practical and playful at once.</p>
-          <p>I learn by making as much as drawing. Building prototypes, working with materials and testing ideas keeps my work grounded, making attaches me to the reality of things.</p>
-        </div>
-      </div>
-      <div class="photo"><img src="jack-portrait.jpg" alt="Jack Howard in a studio installation"></div>
-    </div>
+  <section class="intro wrap studio-intro">
+    <span class="kick">How Are You? Studio</span>
+    <h1 class="statement">Spaces, installations and experiences.</h1>
+    <p class="focus">with a focus on <em class="c-p">interaction</em>, <em class="c-l">identity</em> and <em class="c-o">atmosphere</em>.</p>
   </section>
 
-  <section class="wrap">
-    <div class="sec-head sh-plain"><h2>Selected Work</h2><span class="mono">01 – 06</span></div>
-    <div class="workgrid wg3">
-      <a class="wcard" href="spunog.html" data-reveal><div class="frame"><img src="spun02.jpg" alt="Spúnóg den Cheo"></div><div class="cap"><h3><span class="num">01</span>Spúnóg den Cheo</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard" href="stepseat.html" data-reveal><div class="frame"><img src="step05.jpg" alt="StepSeat"></div><div class="cap"><h3><span class="num">02</span>StepSeat</h3><span class="sub">Furniture</span></div></a>
-      <a class="wcard" href="metamorphosis.html" data-reveal><div class="frame"><img src="fast02.jpg" alt="Metamorphosis"></div><div class="cap"><h3><span class="num">03</span>Metamorphosis</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard" href="scraplab.html" data-reveal><div class="frame"><img src="scrap03.jpg" alt="Scrap Lab"></div><div class="cap"><h3><span class="num">04</span>Scrap Lab</h3><span class="sub">Craft</span></div></a>
-      <a class="wcard" href="walden8.html" data-reveal><div class="frame"><img src="wald01.jpg" alt="Walden 8"></div><div class="cap"><h3><span class="num">05</span>Walden 8</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard" href="skatelounge.html" data-reveal><div class="frame"><img src="skate01.jpg" alt="Skate Lounge"></div><div class="cap"><h3><span class="num">06</span>Skate Lounge</h3><span class="sub">Public</span></div></a>
+  <section class="works-sec">
+    <div class="wrap"><div class="sec-head sh-plain"><h2>Selected Work</h2><span class="mono">Scroll →</span></div></div>
+    <div class="works-scroll">
+      <a class="wcard2" href="spunog.html" data-reveal><div class="wcard2-img"><img src="spun02.jpg" alt="Spúnóg den Cheo"></div><div class="wcard2-cap"><h3><span class="num">01</span>Spúnóg den Cheo</h3><span class="sub">Concept</span></div></a>
+      <a class="wcard2" href="metamorphosis.html" data-reveal><div class="wcard2-img"><img src="fast02.jpg" alt="Metamorphosis"></div><div class="wcard2-cap"><h3><span class="num">02</span>Metamorphosis</h3><span class="sub">Concept</span></div></a>
+      <a class="wcard2" href="stepseat.html" data-reveal><div class="wcard2-img"><img src="step05.jpg" alt="StepSeat"></div><div class="wcard2-cap"><h3><span class="num">03</span>StepSeat</h3><span class="sub">Furniture</span></div></a>
+      <a class="wcard2" href="scraplab.html" data-reveal><div class="wcard2-img"><img src="scrap03.jpg" alt="Scrap Lab"></div><div class="wcard2-cap"><h3><span class="num">04</span>Scrap Lab</h3><span class="sub">Craft</span></div></a>
+      <a class="wcard2" href="walden8.html" data-reveal><div class="wcard2-img"><img src="wald01.jpg" alt="Walden 8"></div><div class="wcard2-cap"><h3><span class="num">05</span>Walden 8</h3><span class="sub">Concept</span></div></a>
+      <a class="wcard2" href="skatelounge.html" data-reveal><div class="wcard2-img"><img src="skate01.jpg" alt="Skate Lounge"></div><div class="wcard2-cap"><h3><span class="num">06</span>Skate Lounge</h3><span class="sub">Public</span></div></a>
+      <a class="wcard2" href="bespoke-woodwork.html" data-reveal><div class="wcard2-img"><img src="bespoke01.jpg" alt="Bespoke Woodwork"></div><div class="wcard2-cap"><h3><span class="num">07</span>Bespoke Woodwork</h3><span class="sub">Craft</span></div></a>
     </div>
   </section>
 
   <div class="filmfull" data-video="https://drive.google.com/file/d/1yU566SBNJulfOWlrHlbHAiDFmjlwExJv/preview"><img class="poster" src="cabbages-poster.jpg" alt="Still from the film, reading in a shopping-trolley shelter, Galway"><button class="playbtn" type="button" aria-label="Play film">&#9658;</button></div>
   <div class="filmnote"><a href="slugs.html">Something To Keep The Slugs Off The Cabbages ↗</a></div>
 
-  <section class="shop wrap" id="shop">
-    <span class="tag">Shop</span>
-    <h2>Coming soon</h2>
-    <p>Objects, prints and the occasional oddity from the studio. Nothing to buy just yet, but it's on the bench.</p>
-    <a class="notify" href="mailto:jack.howard1993@gmail.com?subject=Tell%20me%20when%20the%20shop%20opens">Tell me when it opens →</a>
-  </section>
 </div>
 
 <!-- SERVICES -->
 <div class="side side-services">
-  <section class="intro wrap">
-    <span class="kick">Services, for clients &amp; collaborators</span>
-    <div class="grid2">
-      <div class="lead-col">
-        <h1>Need something <em>made?</em></h1>
-        <p>I design and build furniture, interiors, set pieces and bespoke one-offs, from the first sketch to the finished, installed object. I've built workshop furniture and stage sets in Granada, public furniture for Copenhagen, and interior concepts for cafés, retail and community spaces. Tell me what you're trying to make and where it lives, and I'll help get it into the real world.</p>
-        <p style="margin-top:22px"><a href="contact.html" class="notify" style="border-color:var(--red)">Start a project →</a></p>
+  <section class="intro wrap studio-intro svc-intro">
+    <span class="kick">How Are You? Services</span>
+    <div class="svc-cols">
+      <div class="svc-text">
+        <h1 class="svc-statement">Want to give people a reason to spend time with <em>your brand</em>?</h1>
+        <p class="svc-body">I create concepts for events, pop-ups, <span class="c-p">installations</span> and temporary spaces that turn brands into places and <span class="c-l">experiences</span>. From product launches and takeovers to participatory events and unusual spatial interventions, I look for ways to translate an identity or idea into something people can enter, use, share and remember.</p>
+        <p class="svc-body">I work across creative strategy, experience design, spatial concepts and production planning, collaborating with specialist <span class="c-o">makers</span> and fabricators when a project needs to be built.</p>
       </div>
-      <div class="photo" data-reveal><span>Studio / workshop photo<br>coming soon</span></div>
-    </div>
-    <div class="offer" style="margin-top:clamp(34px,5vw,64px)">
-      <div class="o"><h4><span class="n">01</span>Furniture</h4><p>Seating, tables and pieces, designed and built, one-off or small batch.</p></div>
-      <div class="o"><h4><span class="n">02</span>Interiors</h4><p>Cafés, retail and community spaces, concept, layout and detailing.</p></div>
-      <div class="o"><h4><span class="n">03</span>Set &amp; Stage</h4><p>Stage and set design, fabrication and on-site install for events.</p></div>
-      <div class="o"><h4><span class="n">04</span>Bespoke builds</h4><p>Problem-solving in timber and materials, from a sound box to a custom fit-out.</p></div>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="sec-head sh-plain"><h2>Selected Commissions</h2><span class="mono">01 – 02</span></div>
-    <div class="workgrid wg2">
-      <a class="wcard" href="bespoke-woodwork.html" data-reveal><div class="frame"><img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5a8043239473091.6929c01a939d0.png" alt="Bespoke Woodwork"></div><div class="cap"><h3><span class="num">01</span>Bespoke Woodwork</h3><span class="sub">Craft</span></div></a>
-      <a class="wcard" href="oak-house.html" data-reveal><div class="frame"><img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/941c3c138707361.6222445ddf8dd.png" alt="Oak House"></div><div class="cap"><h3><span class="num">02</span>Oak House</h3><span class="sub">Public</span></div></a>
+      <div class="svc-aside">
+        <a class="gi-cta" href="contact.html">Get in touch</a>
+      </div>
     </div>
   </section>
 </div>
@@ -109,14 +98,15 @@
   <img class="stamp" src="hay-stamp.png" alt="How Are You?, HAY SS1 stamp">
   <div class="fmeta">
     How Are You? · Studio of Jack Howard · Cork, Ireland<br>
-    <a href="mailto:jack.howard1993@gmail.com">Email</a> ·
+    <a href="mailto:hello@howareyou.studio">Email</a> ·
     <a href="https://www.instagram.com/how.are.you.studio" target="_blank" rel="noopener">Instagram</a> ·
     <a href="https://www.behance.net/jckhwd" target="_blank" rel="noopener">Behance</a> ·
     <a href="contact.html">Contact</a><br>
-    &copy; <span data-year>2026</span> · <button class="dont" data-dont type="button">do not press</button>
+    &copy; <span data-year>2026</span>
   </div>
   <a class="top-link" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a>
 </footer>
+</div>
 
 <script src="main.js"></script>
 </body>
