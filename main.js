@@ -23,6 +23,36 @@
     });
   }
 
+  /* site menu */
+  document.querySelectorAll('.site-menu').forEach(function (menu) {
+    var toggle = menu.querySelector('.menu-toggle');
+    var panel = menu.querySelector('.menu-panel');
+    if (!toggle || !panel) return;
+
+    function setMenu(open, returnFocus) {
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      panel.setAttribute('aria-hidden', String(!open));
+      if (!open && returnFocus) toggle.focus();
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setMenu(toggle.getAttribute('aria-expanded') !== 'true', false);
+    });
+    panel.addEventListener('click', function (e) { e.stopPropagation(); });
+    panel.querySelectorAll('a').forEach(function (link) {
+      var target = new URL(link.href, location.href);
+      if (target.pathname === location.pathname) link.setAttribute('aria-current', 'page');
+      link.addEventListener('click', function () { setMenu(false, false); });
+    });
+    document.addEventListener('click', function () { setMenu(false, false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, true);
+    });
+  });
+
   /* reveal on scroll */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {

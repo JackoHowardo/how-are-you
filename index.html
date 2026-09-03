@@ -87,9 +87,15 @@
     <a href="#studio" class="t-studio" data-side-to="studio" role="tab">Studio</a>
     <a href="#services" class="t-services" data-side-to="services" role="tab">Services</a>
   </div>
-  <nav class="nav">
-    <a class="navlink" href="contact.html">Contact</a>
-    <span class="idx"><span>HAY</span><span>SS1</span></span>
+  <nav class="nav site-menu" aria-label="Primary navigation">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu-panel" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu-panel" id="site-menu-panel" aria-hidden="true">
+      <a href="public-community.html">Public + Community</a>
+      <a href="brand-experiences.html">Brand Experiences</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </nav>
 </header>
 
@@ -110,7 +116,7 @@
       <a class="wcard2" href="scraplab.html" data-reveal><div class="wcard2-img"><img src="scrap03.jpg" alt="Scrap Lab"></div><div class="wcard2-cap"><h3><span class="num">04</span>Scrap Lab</h3><span class="sub">Craft</span></div></a>
       <a class="wcard2" href="walden8.html" data-reveal><div class="wcard2-img"><img src="wald01.jpg" alt="Walden 8"></div><div class="wcard2-cap"><h3><span class="num">05</span>Walden 8</h3><span class="sub">Concept</span></div></a>
       <a class="wcard2" href="skatelounge.html" data-reveal><div class="wcard2-img"><img src="skate01.jpg" alt="Skate Lounge"></div><div class="wcard2-cap"><h3><span class="num">06</span>Skate Lounge</h3><span class="sub">Public</span></div></a>
-      <a class="wcard2" href="bespoke-woodwork.html" data-reveal><div class="wcard2-img"><img src="bespoke01.jpg" alt="Bespoke Woodwork"></div><div class="wcard2-cap"><h3><span class="num">07</span>Bespoke Woodwork</h3><span class="sub">Craft</span></div></a>
+      <a class="wcard2" href="bespoke-woodwork.html" data-reveal><div class="wcard2-img"><img loading="lazy" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5a8043239473091.6929c01a939d0.png" alt="Bespoke Woodwork"></div><div class="wcard2-cap"><h3><span class="num">07</span>Bespoke Woodwork</h3><span class="sub">Craft</span></div></a>
     </div>
   </section>
 
@@ -121,17 +127,26 @@
 
 <!-- SERVICES -->
 <div class="side side-services">
-  <section class="intro wrap studio-intro svc-intro">
+  <section class="wrap svc-overview">
     <span class="kick">How Are You? Services</span>
-    <div class="svc-cols">
-      <div class="svc-text">
-        <h1 class="svc-statement">Want to give people a reason to spend time with <em>your brand</em>?</h1>
-        <p class="svc-body">I create concepts for events, pop-ups, <span class="c-p">installations</span> and temporary spaces that turn brands into places and <span class="c-l">experiences</span>. From product launches and takeovers to participatory events and unusual spatial interventions, I look for ways to translate an identity or idea into something people can enter, use, share and remember.</p>
-        <p class="svc-body">I work across creative strategy, experience design, spatial concepts and production planning, collaborating with specialist <span class="c-o">makers</span> and fabricators when a project needs to be built.</p>
-      </div>
-      <div class="svc-aside">
-        <a class="gi-cta" href="contact.html">Get in touch</a>
-      </div>
+    <h1 class="svc-question">Different contexts. The same question:<br><em>how can a space bring people together?</em></h1>
+    <div class="svc-paths">
+      <article class="svc-path svc-path-brand">
+        <span class="svc-num">01 / For brands</span>
+        <h2>Brand experiences</h2>
+        <p>Events, pop-ups and installations that translate identity into something people can enter, use and remember.</p>
+        <a href="brand-experiences.html">Explore brand experiences <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="svc-path svc-path-public">
+        <span class="svc-num">02 / Public + community</span>
+        <h2>Places for gathering</h2>
+        <p>Public-space projects, temporary structures and participatory processes shaped around people, place and use.</p>
+        <a href="public-community.html">Explore public and community work <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <div class="svc-conversation">
+      <span>Not sure where your project fits?</span>
+      <a href="contact.html">Start a conversation</a>
     </div>
   </section>
 </div>
