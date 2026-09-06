@@ -53,6 +53,55 @@
     });
   });
 
+  /* filterable All Work index */
+  (function () {
+    var archive = document.querySelector('.archive');
+    if (!archive) return;
+    var filters = [].slice.call(archive.querySelectorAll('[data-filter]'));
+    var rows = [].slice.call(archive.querySelectorAll('.archive-row'));
+    var preview = archive.querySelector('.archive-preview');
+    var previewImg = preview && preview.querySelector('img');
+    var previewCap = preview && preview.querySelector('figcaption');
+    var count = archive.querySelector('[data-project-count]');
+    var previewTimer;
+
+    function showPreview(row) {
+      if (!preview || !previewImg || !row || previewImg.getAttribute('src') === row.dataset.image) return;
+      clearTimeout(previewTimer);
+      preview.classList.add('changing');
+      previewTimer = setTimeout(function () {
+        previewImg.src = row.dataset.image;
+        if (previewCap) previewCap.textContent = row.dataset.title;
+        preview.classList.remove('changing');
+      }, 130);
+    }
+
+    rows.forEach(function (row) {
+      row.addEventListener('pointerenter', function () { showPreview(row); });
+      row.addEventListener('focus', function () { showPreview(row); });
+    });
+
+    filters.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var selected = button.dataset.filter;
+        var visible = [];
+        filters.forEach(function (filter) {
+          var active = filter === button;
+          filter.classList.toggle('active', active);
+          filter.setAttribute('aria-pressed', String(active));
+        });
+        rows.forEach(function (row) {
+          var categories = (row.dataset.categories || '').split(' ');
+          var show = selected === 'all' || categories.indexOf(selected) !== -1;
+          row.hidden = !show;
+          if (show) visible.push(row);
+        });
+        if (count) count.textContent = visible.length;
+        showPreview(visible[0]);
+      });
+    });
+  })();
+
   /* reveal on scroll */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
