@@ -494,6 +494,14 @@ h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
 .service-work-card .cap{ display:flex; justify-content:space-between; gap:16px; align-items:baseline; margin-top:13px; }
 .service-work-card h3{ font-size:clamp(1.2rem,2.4vw,1.65rem); }
 .service-work-card .type{ font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-2); white-space:nowrap; }
+.service-all-work-link,.service-archive-link a{ display:inline-block; margin-top:clamp(28px,4vw,48px); padding-bottom:3px; font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid currentColor; }
+.service-all-work-link:hover,.service-archive-link a:hover{ color:var(--service-accent); }
+.service-archive-link{ position:relative; z-index:1; text-align:right; }
+.all-work-page{ --service-accent:var(--red); }
+.all-work-page .service-hero{ padding-bottom:clamp(38px,6vw,70px); }
+.all-work-page .service-hero h1{ max-width:none; }
+.all-work-page .service-work-grid{ grid-template-columns:repeat(2,1fr); padding-top:0; }
+.all-work-page .service-work-card{ margin-bottom:clamp(28px,4vw,52px); }
 .service-cta{ display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(24px,4vw,56px); margin-top:clamp(82px,12vw,150px); border-top:1px solid var(--ink); padding-top:clamp(32px,5vw,60px); }
 .service-cta p{ grid-column:1/span 7; margin:0; font-size:clamp(1.65rem,3.5vw,3rem); line-height:1.16; }
 .service-cta a{ grid-column:9/span 4; align-self:center; justify-self:start; font-style:italic; font-size:clamp(1.4rem,2.4vw,2rem); border-bottom:3px solid var(--service-accent); transition:transform .3s cubic-bezier(.2,.7,.3,1); }
