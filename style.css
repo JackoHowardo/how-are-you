@@ -124,6 +124,8 @@ h1,h2,h3{ font-weight:600; letter-spacing:-.02em; line-height:1.02; margin:0; }
 .p-lead .copy{ grid-column:1 / span 6; }
 .p-lead .copy p{ margin:0 0 1.1em; color:var(--ink-2); font-size:1.06rem; line-height:1.6; }
 .p-lead .copy p:first-child{ color:var(--ink); font-size:1.15rem; }
+.p-lead .copy a{ border-bottom:1px solid currentColor; }
+.p-lead .copy a:hover{ color:var(--red); }
 .p-lead .facts{ grid-column:9 / span 4; }
 .p-lead .facts dt{ font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-top:22px; }
 .p-lead .facts dt:first-child{ margin-top:0; }
