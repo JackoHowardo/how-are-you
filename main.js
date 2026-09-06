@@ -387,7 +387,7 @@
   var skip = document.getElementById('opSkip');
   var slot = document.getElementById('opSymbols');
   var q = document.getElementById('opQ');
-  var words    = ['', 'people', 'land', 'making', 'studio'];             // cup-ring, people, land, making, then "?"
+  var words    = ['', 'people', 'place', 'making', 'studio'];            // cup-ring, people, place, making, then "?"
   var dotcols  = ['#B5432C', '#2E3D9B', '#C98A1B', '#B5432C', '#B5432C'];  // studio dot stays rust
   var wordcols = ['#B5432C', '#2E3D9B', '#C98A1B', '#B5432C', '#33302A'];  // studio word is off-black
   var N = 5;
