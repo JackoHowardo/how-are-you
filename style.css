@@ -15,7 +15,7 @@
   font-display:swap;
 }
 :root{
-  --paper:#EAE3D1; --paper-2:#F4EEDF; --paper-edge:#E0D7C3; --bg:#FDFBF6;
+  --paper:#EDEBE4; --paper-2:#F5F3ED; --paper-edge:#DCD8CE; --bg:#F5F3EE;
   --ink:#33302A; --ink-2:#57534B; --ink-3:#6A655D;
   --red:#B2382A; --yellow:#E4A200; --blue:#2E3E8C; --blue-line:#5F9DE8;
   --rust:#B03F2A; --ochre:#C98A1B; --cobalt:#2E3D9B; --olive:#5C6B44;
@@ -255,7 +255,7 @@ button.send:hover{ background:var(--red); } button.send:active{ transform:transl
 
 
 /* ===== v3 - Camden-style fonts, tinted pages, uniform grid, full-bleed film ===== */
-body{ background-color:var(--page-bg, var(--bg)); background-image:url(paper-texture.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; background-attachment:fixed; background-blend-mode:multiply; }
+body{ background-color:var(--page-bg, var(--bg)); background-image:linear-gradient(rgba(248,247,243,.64),rgba(248,247,243,.64)),url(paper-texture.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; background-attachment:fixed; background-blend-mode:normal,multiply; }
 .topbar{ position:relative; z-index:50; background:transparent; border-bottom:none; backdrop-filter:none; }
 /* lighter, signage-like headings (New Rail Alphabet is light) */
 h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
@@ -504,20 +504,20 @@ h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
 .svc-path{ min-width:0; padding:0 clamp(24px,5vw,72px) clamp(36px,5vh,56px) 0; }
 .svc-path+.svc-path{ border-left:1px solid var(--ink); padding-left:clamp(24px,5vw,72px); padding-right:0; }
 .svc-num{ display:block; margin-bottom:clamp(24px,4vh,42px); font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; }
-.svc-path-brand .svc-num{ color:var(--rust); }
+.svc-path-events .svc-num{ color:var(--rust); }
 .svc-path-public .svc-num{ color:var(--olive); }
 .svc-path h2{ font-size:clamp(2rem,4vw,3.55rem); font-weight:400; letter-spacing:-.025em; }
 .svc-path p{ max-width:39ch; margin:clamp(18px,3vh,28px) 0; color:var(--ink-2); font-size:clamp(1.02rem,1.45vw,1.18rem); line-height:1.5; }
 .svc-path a{ display:inline-block; padding-bottom:4px; font-size:clamp(1.05rem,1.55vw,1.25rem); border-bottom:2px solid currentColor; transition:transform .3s cubic-bezier(.2,.7,.3,1); }
 .svc-path a:hover{ transform:translateX(7px); }
-.svc-path-brand a{ color:var(--cobalt); }
+.svc-path-events a{ color:var(--cobalt); }
 .svc-path-public a{ color:var(--rust); }
 .svc-conversation{ display:flex; align-items:baseline; gap:clamp(20px,3vw,42px); padding:clamp(22px,3vh,34px) 0 0; font-size:1.03rem; }
 .svc-conversation a{ font-style:italic; font-size:clamp(1.3rem,2.2vw,1.8rem); border-bottom:2px solid var(--red); }
 
 /* ---- Dedicated service pages ---- */
 .service-page{ --service-accent:var(--rust); }
-.service-page.brand-service{ --service-accent:var(--cobalt); }
+.service-page.events-service{ --service-accent:var(--cobalt); }
 .service-page.public-service{ --service-accent:var(--olive); }
 .service-hero{ position:relative; z-index:1; padding-top:clamp(70px,12vw,150px); padding-bottom:clamp(54px,8vw,100px); }
 .service-kick{ display:block; margin-bottom:clamp(22px,4vh,38px); font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--service-accent); }
