@@ -322,11 +322,12 @@
 
   /* flecks - page-positioned, drift when the cursor moves through them */
   var flecks = [];
+  var fleckRing = new Path2D('M12.7 2.5C8.7 2 4 4.4 2.7 8.8c-1.5 4.4.4 9.6 4.3 11.9 4.2 2.4 10.3.5 13.2-3.1 2.3-3.1 1.9-8.2-.8-11.7-1.7-2.1-3.7-3-6.7-3.4Z');
   var FK = 0.012, FD = 0.9, FINF = 30, FIMP = 1.9, FCLAMP = 46;
   function buildFlecks() {
     flecks = [];
     var n = Math.min(2200, Math.round(W * docH / 8200));
-    for (var i = 0; i < n; i++) flecks.push({ x: Math.random() * W, y: Math.random() * docH, c: PAL[(Math.random() * 3) | 0], ox: 0, oy: 0, vx: 0, vy: 0 });
+    for (var i = 0; i < n; i++) flecks.push({ x: Math.random() * W, y: Math.random() * docH, c: PAL[(Math.random() * 3) | 0], angle: Math.random() * Math.PI * 2, ox: 0, oy: 0, vx: 0, vy: 0 });
   }
   buildFlecks();
 
@@ -429,7 +430,9 @@
     fxc.clearRect(0, 0, W, H); fxc.globalAlpha = 0.5;
     for (var i = 0; i < flecks.length; i++) {
       var f = flecks[i], y = f.y - scy + f.oy; if (y < -8 || y > H + 8) continue;
-      fxc.fillStyle = f.c; fxc.beginPath(); fxc.arc(f.x + f.ox, y, 1.8, 0, 6.2832); fxc.fill();
+      fxc.save(); fxc.translate(f.x + f.ox, y); fxc.rotate(f.angle); fxc.scale(.38, .38); fxc.translate(-12, -12);
+      fxc.strokeStyle = f.c; fxc.lineWidth = 2.6; fxc.lineCap = 'round'; fxc.lineJoin = 'round'; fxc.stroke(fleckRing);
+      fxc.restore();
     }
     fxc.globalAlpha = 1;
     txc.clearRect(0, 0, W, H); txc.lineWidth = 2.4; txc.lineCap = 'round';
@@ -465,7 +468,7 @@
   var skip = document.getElementById('opSkip');
   var slot = document.getElementById('opSymbols');
   var q = document.getElementById('opQ');
-  var words    = ['', 'people', 'place', 'making', 'studio'];            // cup-ring, people, place, making, then "?"
+  var words    = ['', 'people', 'place', 'ecology', 'studio'];           // cup-ring, people, place, ecology, then "?"
   var dotcols  = ['#B5432C', '#2E3D9B', '#C98A1B', '#B5432C', '#B5432C'];  // studio dot stays rust
   var wordcols = ['#B5432C', '#2E3D9B', '#C98A1B', '#B5432C', '#33302A'];  // studio word is off-black
   var N = 5;
