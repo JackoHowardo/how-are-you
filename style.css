@@ -504,8 +504,8 @@ h1,h2,h3{ font-weight:500; letter-spacing:-.015em; }
 .svc-path{ min-width:0; padding:0 clamp(24px,5vw,72px) clamp(36px,5vh,56px) 0; }
 .svc-path+.svc-path{ border-left:1px solid var(--ink); padding-left:clamp(24px,5vw,72px); padding-right:0; }
 .svc-num{ display:block; margin-bottom:clamp(24px,4vh,42px); font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; }
-.svc-path-events .svc-num{ color:var(--rust); }
-.svc-path-public .svc-num{ color:var(--olive); }
+.svc-path-events .svc-num{ color:var(--cobalt); }
+.svc-path-public .svc-num{ color:var(--rust); }
 .svc-path-audiences .svc-num{ color:var(--cobalt); }
 .svc-path.svc-path-audiences{ grid-column:1 / -1; border-left:0; border-top:1px solid var(--ink); padding-left:0; padding-top:36px; }
 .svc-path.svc-path-audiences p{ max-width:65ch; }
