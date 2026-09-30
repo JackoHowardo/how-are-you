@@ -576,3 +576,94 @@
   window.addEventListener('load', upd);
   upd();
 })();
+
+/* Smooth disclosure panels, including reversal during an unfinished transition. */
+(function () {
+  var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('details.partner').forEach(function (panel) {
+    var summary = panel.querySelector('summary');
+    var content = panel.querySelector('.partner-content');
+    var animation = null;
+    var expanded = panel.open;
+    summary.addEventListener('click', function (event) {
+      if (motion.matches || !panel.animate) return; // Keep native keyboard/click behaviour.
+      event.preventDefault();
+      var start = panel.getBoundingClientRect().height;
+      if (!animation) expanded = panel.open;
+      expanded = !expanded;
+      if (animation) {
+        animation.onfinish = null;
+        animation.cancel();
+      }
+      panel.open = true; // Content remains rendered throughout opening and closing.
+      panel.dataset.expanded = String(expanded);
+      var border = parseFloat(getComputedStyle(panel).borderBottomWidth) || 0;
+      var end = summary.getBoundingClientRect().height + border;
+      if (expanded) end += content.getBoundingClientRect().height;
+      panel.style.overflow = 'hidden';
+      animation = panel.animate([{ height: start + 'px' }, { height: end + 'px' }], {
+        duration: 360,
+        easing: 'cubic-bezier(.25,.8,.25,1)'
+      });
+      animation.onfinish = function () {
+        panel.open = expanded;
+        panel.style.overflow = '';
+        delete panel.dataset.expanded;
+        animation = null;
+      };
+    });
+    // Settle immediately if the viewport or motion preference changes mid-animation.
+    function settle() {
+      if (!animation) return;
+      animation.onfinish = null;
+      animation.cancel();
+      animation = null;
+      panel.open = expanded;
+      panel.style.overflow = '';
+      delete panel.dataset.expanded;
+    }
+    window.addEventListener('resize', settle);
+    motion.addEventListener('change', settle);
+  });
+})();
+
+/* A single red / blue / yellow pass as each selected heading enters view. */
+(function () {
+  var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (motion.matches || !('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('ripple-play');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.8, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('[data-colour-ripple]').forEach(function (target) {
+    var text = target.textContent;
+    target.textContent = '';
+    var readable = document.createElement('span');
+    readable.className = 'ripple-readable';
+    readable.textContent = text;
+    target.appendChild(readable);
+    var visual = document.createElement('span');
+    visual.setAttribute('aria-hidden', 'true');
+    var count = 0;
+    text.split(' ').forEach(function (word, index) {
+      if (index) visual.appendChild(document.createTextNode(' '));
+      var group = document.createElement('span');
+      group.className = 'ripple-word';
+      Array.from(word).forEach(function (letter) {
+        var span = document.createElement('span');
+        span.className = 'ripple-letter';
+        span.textContent = letter;
+        span.style.setProperty('--ripple-delay', (count * 160) + 'ms');
+        span.style.setProperty('--ripple-colour', ['var(--rust)', 'var(--cobalt)', 'var(--ochre)'][count % 3]);
+        group.appendChild(span);
+        count++;
+      });
+      visual.appendChild(group);
+    });
+    target.appendChild(visual);
+    observer.observe(target);
+  });
+})();
