@@ -30,8 +30,8 @@
       <span></span><span></span><span></span>
     </button>
     <div class="menu-panel" id="site-menu-panel" aria-hidden="true">
-      <a href="public-community.html">Public + Community</a>
-      <a href="events-spaces.html">Events + Spaces</a>
+      <a href="design-consultancy.html">Design Consultancy</a>
+      <a href="public-community.html">Art + Collaboration</a>
       <a href="all-work.html">All Work</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -45,10 +45,10 @@
   </div>
 </section>
 
-<div class="contact-wrap wrap">
+<div class="contact-wrap wrap" id="enquiry">
   <div class="intro-col">
-    <h1 style="font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.03em;line-height:.98">How are <em style="font-family:var(--serif);font-style:italic;font-weight:400">you?</em></h1>
-    <p style="margin-top:20px;color:var(--ink-2);max-width:38ch">Got a project, a commission, or just want to say hello? Drop a line below, or reach me directly.</p>
+    <h1 id="contact-heading" style="font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.03em;line-height:.98">How are <em style="font-family:var(--serif);font-style:italic;font-weight:400">you?</em></h1>
+    <p id="contact-intro" style="margin-top:20px;color:var(--ink-2);max-width:38ch">Got a project, a commission, or just want to say hello? Drop a line below, or reach me directly.</p>
     <p class="mono" style="margin-top:26px;line-height:2">
       <a href="mailto:hello@howareyou.studio" style="border-bottom:1px solid var(--red)">hello@howareyou.studio</a><br>
       <a href="https://www.instagram.com/how.are.you.studio" target="_blank" rel="noopener">Instagram, @how.are.you.studio</a><br>
@@ -66,9 +66,10 @@
       <label for="email">Email</label>
       <input id="email" name="email" type="email" required autocomplete="email">
     </div>
+    <div class="field"><label for="enquiry-type">What brings you here?</label><select id="enquiry-type" name="enquiry_type"><option value="general">A general enquiry</option><option value="consultation">A free introductory consultation</option><option value="collaboration">An artistic or community collaboration</option></select></div>
     <div class="field">
       <label for="message">Message</label>
-      <textarea id="message" name="message" required placeholder="What are you trying to make?"></textarea>
+      <textarea id="message" name="message" required placeholder="Tell me a little about your idea, organisation or question."></textarea>
     </div>
     <input type="hidden" name="_subject" value="New message from howareyou.studio">
     <p class="form-privacy">We use the details you provide only to respond to your enquiry. Read the <a href="privacy.html">Privacy Notice</a>.</p>

@@ -136,6 +136,21 @@
 
   /* contact form -> submit to Formspree in the background, show an inline message */
   var cform = document.getElementById('contact-form');
+  if (cform) {
+    var enquiryType = document.getElementById('enquiry-type');
+    var requestedType = new URLSearchParams(window.location.search).get('enquiry');
+    if (requestedType === 'consultation' || requestedType === 'collaboration') enquiryType.value = requestedType;
+    function updateEnquiry() {
+      var consultation = enquiryType.value === 'consultation';
+      var collaboration = enquiryType.value === 'collaboration';
+      document.getElementById('contact-heading').textContent = consultation ? 'Let’s talk it through.' : collaboration ? 'What could we explore?' : 'How are you?';
+      document.getElementById('contact-intro').textContent = consultation ? 'Tell me a little about what you have in mind and when you are available. I’ll reply to arrange a free introductory conversation. No booking is confirmed until we agree a time.' : collaboration ? 'Share your idea, the people or place involved, and any funding or timeline you have in mind. Early questions are welcome.' : 'Got a project or just want to say hello? Drop a line below, or reach me directly.';
+      cform.querySelector('button[type="submit"]').textContent = consultation ? 'Request a free consultation →' : 'Send enquiry →';
+      cform.querySelector('[name="_subject"]').value = consultation ? 'Free consultation enquiry — How Are You?' : collaboration ? 'Collaboration enquiry — How Are You?' : 'New message from howareyou.studio';
+    }
+    enquiryType.addEventListener('change', updateEnquiry);
+    updateEnquiry();
+  }
   if (cform) cform.addEventListener('submit', function (e) {
     e.preventDefault();
     var msg = document.getElementById('form-msg');
@@ -146,6 +161,7 @@
       .then(function (r) {
         if (r.ok) {
           cform.reset();
+          if (enquiryType) enquiryType.dispatchEvent(new Event('change'));
           if (msg) { msg.className = 'form-msg ok'; msg.textContent = 'Sent! Talk soon :)'; }
         } else {
           if (msg) { msg.className = 'form-msg err'; msg.innerHTML = 'Something went wrong. Please send again, or email <a href="mailto:hello@howareyou.studio">hello@howareyou.studio</a>'; }
