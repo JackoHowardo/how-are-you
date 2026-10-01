@@ -7,13 +7,18 @@
   function setSide(side, push) {
     if (side !== 'studio' && side !== 'services') side = 'studio';
     body.setAttribute('data-side', side);
+    document.querySelectorAll('.toggle a').forEach(function (link) {
+      var active = link.classList.contains('t-' + side);
+      if (active) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
     if (side === 'services' && window.__hayReset) window.__hayReset();
     if (push && history.replaceState) history.replaceState(null, '', '#' + side);
     if (push) { var _s = document.getElementById('site'); window.scrollTo({ top: _s ? _s.offsetTop : 0, behavior: 'smooth' }); }
   }
   if (body.hasAttribute('data-side')) {
     var initial = (location.hash || '').replace('#', '');
-    if (initial === 'studio' || initial === 'services') setSide(initial, false);
+    setSide(initial === 'studio' || initial === 'services' ? initial : body.getAttribute('data-side'), false);
     document.querySelectorAll('[data-side-to]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); setSide(a.getAttribute('data-side-to'), true); });
     });
@@ -74,6 +79,8 @@
       clearTimeout(previewTimer);
       preview.classList.add('changing');
       previewTimer = setTimeout(function () {
+        previewImg.removeAttribute('srcset');
+        previewImg.removeAttribute('sizes');
         previewImg.src = row.dataset.image;
         if (previewCap) previewCap.textContent = row.dataset.title;
         preview.classList.remove('changing');
@@ -144,8 +151,8 @@
       var consultation = enquiryType.value === 'consultation';
       var collaboration = enquiryType.value === 'collaboration';
       document.getElementById('contact-heading').textContent = consultation ? 'Let’s talk it through.' : collaboration ? 'What could we explore?' : 'How are you?';
-      document.getElementById('contact-intro').textContent = consultation ? 'Tell me a little about what you have in mind and when you are available. I’ll reply to arrange a free introductory conversation. No booking is confirmed until we agree a time.' : collaboration ? 'Share your idea, the people or place involved, and any funding or timeline you have in mind. Early questions are welcome.' : 'Got a project or just want to say hello? Drop a line below, or reach me directly.';
-      cform.querySelector('button[type="submit"]').textContent = consultation ? 'Request a free consultation →' : 'Send enquiry →';
+      document.getElementById('contact-intro').textContent = consultation ? 'Tell me a little about what you have in mind and when you are available. I’ll reply to arrange a free introductory conversation. We’ll agree a time by email.' : collaboration ? 'Share your idea, the people or place involved, and any funding or timeline you have in mind. Early questions are welcome.' : 'Got a project or just want to say hello? Drop a line below, or reach me directly.';
+      cform.querySelector('button[type="submit"]').textContent = consultation ? 'Arrange a free consultation →' : 'Send enquiry →';
       cform.querySelector('[name="_subject"]').value = consultation ? 'Free consultation enquiry — How Are You?' : collaboration ? 'Collaboration enquiry — How Are You?' : 'New message from howareyou.studio';
     }
     enquiryType.addEventListener('change', updateEnquiry);
@@ -205,6 +212,15 @@
     var lbImg = lb.querySelector('img');
     var lbClose = lb.querySelector('.lb-close');
     var lastFocus = null;
+    document.querySelectorAll('.figs figure img').forEach(function (img) {
+      if (img.closest('a, button')) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'lightbox-trigger';
+      button.setAttribute('aria-label', 'Enlarge image: ' + (img.alt || 'project photograph'));
+      img.parentNode.insertBefore(button, img);
+      button.appendChild(img);
+    });
     function close() {
       if (!lb.classList.contains('open')) return;
       lb.classList.remove('open');
@@ -214,10 +230,11 @@
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
     document.addEventListener('click', function (e) {
-      var t = e.target.closest && e.target.closest('.figs figure img, .intro .photo img');
-      if (!t) return;
-      lastFocus = document.activeElement;
-      lbImg.src = t.currentSrc || t.src; lbImg.alt = t.alt || '';
+      var trigger = e.target.closest && e.target.closest('.lightbox-trigger');
+      if (!trigger) return;
+      var t = trigger.querySelector('img');
+      lastFocus = trigger;
+      lbImg.src = t.dataset.full || t.currentSrc || t.src; lbImg.alt = t.alt || '';
       lb.classList.add('open');
       lb.setAttribute('aria-hidden', 'false');
       document.body.classList.add('lightbox-open');
@@ -665,5 +682,38 @@
     });
     target.appendChild(visual);
     observer.observe(target);
+  });
+})();
+
+/* Accessible project-strip controls and direct content navigation. */
+(function () {
+  var strip = document.getElementById('selected-work-strip');
+  var buttons = document.querySelectorAll('[data-work-scroll]');
+  if (strip) {
+    function update() {
+      buttons.forEach(function (button) {
+        var next = button.dataset.workScroll === '1';
+        button.disabled = next ? strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 3 : strip.scrollLeft <= 3;
+      });
+    }
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        strip.scrollBy({left: Number(button.dataset.workScroll) * strip.clientWidth * 0.8, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+      });
+    });
+    strip.addEventListener('scroll', update, {passive: true});
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    update();
+  }
+  var skip = document.querySelector('.skip-link');
+  if (skip) skip.addEventListener('click', function (event) {
+    var main = document.getElementById('main');
+    if (!main) return;
+    event.preventDefault();
+    var openerSkip = document.getElementById('opSkip');
+    if (openerSkip) openerSkip.click();
+    main.focus({preventScroll: true});
+    main.scrollIntoView({behavior:'auto',block:'start'});
   });
 })();

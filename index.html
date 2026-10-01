@@ -10,7 +10,7 @@
 <meta property="og:description" content="How Are You? is a spatial design practice creating places and experiences shaped around people. Working across public space, community projects, events and temporary architecture, the studio combines participation and spatial design to influence how places are used, felt and shared.">
 <meta property="og:image" content="spun02.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260930-design">
 <noscript><style>#opener{display:none!important}</style></noscript>
 <link rel="canonical" href="https://howareyou.studio/">
 <script type="application/ld+json">{
@@ -99,6 +99,7 @@
 }</script>
 </head>
 <body data-side="studio">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- OPENER · scroll-through symbol sequence (homepage only) -->
 <section class="opener" id="opener" aria-label="How Are You?">
@@ -123,10 +124,10 @@
     <span class="bmark" aria-hidden="true"></span>
     <span class="name">How&nbsp;Are&nbsp;You?</span>
   </a>
-  <div class="toggle" role="tablist" aria-label="Switch between Studio and Services">
+  <div class="toggle" role="navigation" aria-label="Switch between Studio and Services">
     <span class="knob" aria-hidden="true"></span>
-    <a href="#studio" class="t-studio" data-side-to="studio" role="tab">Studio</a>
-    <a href="#services" class="t-services" data-side-to="services" role="tab">Services</a>
+    <a href="#studio" class="t-studio" data-side-to="studio">Studio</a>
+    <a href="#services" class="t-services" data-side-to="services">Services</a>
   </div>
   <nav class="nav site-menu" aria-label="Primary navigation">
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu-panel" aria-label="Open menu">
@@ -141,6 +142,7 @@
   </nav>
 </header>
 
+<main id="main" tabindex="-1">
 <!-- STUDIO -->
 <div class="side side-studio">
   <section class="intro wrap studio-intro">
@@ -149,20 +151,13 @@
     <p class="focus">Spatial practice for <em class="c-p">communities</em>, <em class="c-l">gathering</em> and <em class="c-o">living systems</em>.</p>
   </section>
 
+  <div class="studio-route wrap"><a href="#services" data-side-to="services">Explore services <span aria-hidden="true">↗</span></a></div>
   <section class="works-sec">
-    <div class="wrap"><div class="sec-head sh-plain"><h2>Selected Work</h2><span class="mono"><a href="all-work.html">All work</a> · Scroll →</span></div></div>
-    <div class="works-scroll">
-      <a class="wcard2" href="spunog.html" data-reveal><div class="wcard2-img"><img src="spun02.jpg" alt="Spúnóg den Cheo"></div><div class="wcard2-cap"><h3><span class="num">01</span>Spúnóg den Cheo</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard2" href="metamorphosis.html" data-reveal><div class="wcard2-img"><img src="fast02.jpg" alt="Metamorphosis"></div><div class="wcard2-cap"><h3><span class="num">02</span>Metamorphosis</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard2" href="stepseat.html" data-reveal><div class="wcard2-img"><img src="step05.jpg" alt="StepSeat"></div><div class="wcard2-cap"><h3><span class="num">03</span>StepSeat</h3><span class="sub">Furniture</span></div></a>
-      <a class="wcard2" href="scraplab.html" data-reveal><div class="wcard2-img"><img src="scrap03.jpg" alt="Scrap Lab"></div><div class="wcard2-cap"><h3><span class="num">04</span>Scrap Lab</h3><span class="sub">Craft</span></div></a>
-      <a class="wcard2" href="walden8.html" data-reveal><div class="wcard2-img"><img src="wald01.jpg" alt="Walden 8"></div><div class="wcard2-cap"><h3><span class="num">05</span>Walden 8</h3><span class="sub">Concept</span></div></a>
-      <a class="wcard2" href="skatelounge.html" data-reveal><div class="wcard2-img"><img src="skate01.jpg" alt="Skate Lounge"></div><div class="wcard2-cap"><h3><span class="num">06</span>Skate Lounge</h3><span class="sub">Public</span></div></a>
-      <a class="wcard2" href="willow-pavilion.html" data-reveal><div class="wcard2-img"><img loading="lazy" src="willow-isometric.webp" alt="Living-willow pavilion with timber seating and a performance stage"></div><div class="wcard2-cap"><h3><span class="num">07</span>Willow Pavilion</h3><span class="sub">Proposal</span></div></a>
-    </div>
-  </section>
+    <div class="wrap"><div class="sec-head sh-plain"><h2>Selected Work</h2><div class="work-actions"><a class="mono" href="all-work.html">All work</a><button type="button" data-work-scroll="-1" aria-controls="selected-work-strip" aria-label="Previous projects">←</button><button type="button" data-work-scroll="1" aria-controls="selected-work-strip" aria-label="Next projects">→</button></div></div></div>
+    <div class="works-scroll" id="selected-work-strip" tabindex="0" aria-label="Selected projects; scroll horizontally"><a class="wcard2" href="stepseat.html"><div class="wcard2-img"><img src="step05.jpg" alt="Portable StepSeat on the river steps in Cork" width="2000" height="1333" decoding="async" loading="eager" sizes="(max-width: 600px) 85vw, 40vw" data-full="step05.jpg"></div><div class="wcard2-cap"><h3><span class="num">01</span>StepSeat</h3><span class="sub">Built</span></div></a><a class="wcard2" href="tedx-granada-stage.html"><div class="wcard2-img"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/38a0ba239473091.6929c01c784ba.jpeg" alt="TEDxGranada stage with illuminated timber trees" width="1500" height="1000" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/38a0ba239473091.6929c01c784ba.jpeg"></div><div class="wcard2-cap"><h3><span class="num">02</span>TEDxGranada Stage</h3><span class="sub">Delivered</span></div></a><a class="wcard2" href="skatelounge.html"><div class="wcard2-img"><img src="skate01.jpg" alt="Skate Lounge proposal and survey posters installed on a Cork street" width="1242" height="1650" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="skate01.jpg"></div><div class="wcard2-cap"><h3><span class="num">03</span>Skate Lounge</h3><span class="sub">Research + proposal</span></div></a><a class="wcard2" href="scraplab.html"><div class="wcard2-img"><img src="scrap03.jpg" alt="Furniture assembled from found scrap in Glasnevin" width="2000" height="1506" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="scrap03.jpg"></div><div class="wcard2-cap"><h3><span class="num">04</span>Scrap Lab</h3><span class="sub">Built</span></div></a><a class="wcard2" href="spunog.html"><div class="wcard2-img"><img src="spun02.jpg" alt="Fog collector and rest point concept for Sherkin Island" width="1700" height="1275" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="spun02.jpg"></div><div class="wcard2-cap"><h3><span class="num">05</span>Spúnóg den Cheo</h3><span class="sub">Concept</span></div></a><a class="wcard2" href="willow-pavilion.html"><div class="wcard2-img"><img src="willow-isometric.webp" alt="Living-willow event pavilion concept" width="1492" height="1054" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="willow-isometric.webp"></div><div class="wcard2-cap"><h3><span class="num">06</span>Willow Pavilion</h3><span class="sub">Concept</span></div></a></div></section>
 
-  <div class="filmfull" data-video="https://drive.google.com/file/d/1yU566SBNJulfOWlrHlbHAiDFmjlwExJv/preview"><img class="poster" src="cabbages-poster.jpg" alt="Still from the film, reading in a shopping-trolley shelter, Galway"><button class="playbtn" type="button" aria-label="Play film">&#9658;</button></div>
+<section class="studio-note wrap"><div><span class="mono">Behind the studio</span><h2>Jack Howard.<br><em>Based in Cork.</em></h2></div><div><p>How Are You? is my spatial design practice. I work across research, public space, installations and making, with an interest in how people gather and take part.</p><p>Projects range from the research and fabrication behind StepSeat to co-designing, building and helping deliver a live stage environment for TEDxGranada.</p><a href="contact.html">Get in touch <span aria-hidden="true">↗</span></a></div></section>
+  <div class="filmfull" data-video="https://drive.google.com/file/d/1yU566SBNJulfOWlrHlbHAiDFmjlwExJv/preview"><img class="poster" src="palas.jpg" alt="Still from the film, reading in a shopping-trolley shelter, Galway" width="1700" height="809" decoding="async" loading="lazy" sizes="(max-width: 600px) 85vw, 40vw" data-full="palas.jpg"><button class="playbtn" type="button" aria-label="Play film">&#9658;</button></div>
   <div class="filmnote"><a href="slugs.html">Something To Keep The Slugs Off The Cabbages ↗</a></div>
 
 </div>
@@ -183,8 +178,9 @@
   </section>
 </div>
 
+</main>
 <footer class="foot wrap">
-  <img class="stamp" src="hay-stamp.png" alt="How Are You?, HAY SS1 stamp">
+  <img class="stamp" src="hay-stamp.png" alt="How Are You?, HAY SS1 stamp" width="348" height="400" loading="lazy" decoding="async">
   <div class="fmeta">
     How Are You? · Studio of Jack Howard · Cork, Ireland<br>
     <a href="mailto:hello@howareyou.studio">Email</a> ·
@@ -197,7 +193,7 @@
 </footer>
 </div>
 
-<script src="main.js"></script>
+<script src="main.js?v=20260930-design"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90c496f8699d48c989a7b201798ce162"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
