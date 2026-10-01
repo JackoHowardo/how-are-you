@@ -25,7 +25,7 @@ for item in manifest:
             destination.parent.mkdir(exist_ok=True)
             width = target['width']
             height = round(original.height * width / original.width)
-            assert height == target['height']
+            assert height == target['height'], f"Dimensions differ: {source} {original.size} {target} actual height={height}"
             original.resize((width, height), Image.Resampling.LANCZOS).save(destination, 'WEBP', quality=82, method=6)
             with Image.open(destination) as check:
                 check.verify()

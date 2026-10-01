@@ -135,7 +135,7 @@
     ]
   },
   {
-    "source": "cabbages-poster.jpg",
+    "source": "palas.jpg",
     "targets": [
       {
         "path": "images/palas-1442.webp",
@@ -150,7 +150,7 @@
     ]
   },
   {
-    "source": "palas.jpg",
+    "source": "cabbages-poster.jpg",
     "targets": [
       {
         "path": "images/cabbages-poster-1600.webp",
