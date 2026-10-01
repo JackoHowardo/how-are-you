@@ -758,7 +758,6 @@ figure figcaption{font-size:1rem;line-height:1.5}
 .lightbox-trigger:focus-visible{outline:3px solid var(--cobalt);outline-offset:5px}
 .lightbox-trigger img{display:block}
 .lb-close{min-width:44px;min-height:44px}
-.service-page .service-intro,.service-page .partner-content,.service-page .offer-grid,.service-page .process-list,.p-lead,.p-body,.project-summary,.studio-note,.contact-wrap{background:color-mix(in srgb,var(--paper) 88%,transparent)}
 .contact-wrap{position:relative;z-index:1}
 .field label,.form-privacy,.form-msg{font-size:.85rem;letter-spacing:.02em}
 .form-privacy{line-height:1.6}
