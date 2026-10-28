@@ -1,0 +1,30 @@
+.about-page{--service-accent:var(--cobalt)}
+.about-hero{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(35px,7vw,105px);align-items:start;padding-top:clamp(45px,6vw,88px)}
+.about-hero .service-kick{display:block;margin-bottom:24px}
+.about-hero h1{font-size:clamp(3rem,6.7vw,6.3rem);font-weight:400;letter-spacing:-.045em;line-height:.98}
+.about-hero h1 em{font-weight:400;color:var(--cobalt)}
+.about-lead{max-width:39ch;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.5;margin:30px 0 0}
+.about-portrait{width:100%;max-width:390px;justify-self:end}
+.about-portrait img{width:100%;height:auto;border:1px solid var(--paper-edge)}
+.about-portrait figcaption{font-size:.9rem;margin-top:12px}
+.about-section{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(26px,6vw,90px);margin-top:clamp(65px,8vw,110px)}
+.about-section h2{font-size:clamp(1.7rem,3vw,2.7rem);font-weight:400;line-height:1.1;max-width:13ch}
+.about-copy{max-width:66ch}
+.about-copy p{margin:0 0 1.2em;color:var(--ink-2);font-size:1.08rem;line-height:1.65}
+.about-copy p:last-child{margin-bottom:0}
+.about-copy a{border-bottom:1px solid var(--cobalt)}
+.about-method{border-top:1px solid var(--paper-edge);padding-top:24px;margin-top:30px}
+.about-method:first-child{margin-top:0}
+.about-method h3{font-size:1.25rem;font-weight:500;line-height:1.25;margin-bottom:12px}
+.about-projects{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+.about-project{border-top:1px solid var(--paper-edge);padding-top:20px}
+.about-project .mono{color:var(--ink-3)}
+.about-project h3{font-size:1.45rem;font-weight:400;margin:10px 0 12px;line-height:1.15}
+.about-project h3 a{border-bottom:1px solid var(--cobalt)}
+.about-project p{font-size:1rem;line-height:1.6;color:var(--ink-2);margin:0}
+.about-invite{position:relative;z-index:1;margin-top:clamp(70px,9vw,120px);padding-top:32px;padding-bottom:25px;border-top:1px solid var(--ink)}
+.about-invite h2{font-size:clamp(2.2rem,5.2vw,4.5rem);font-weight:400;max-width:16ch;line-height:1.04}
+.about-invite p{font-size:1.12rem;line-height:1.6;color:var(--ink-2);max-width:64ch;margin:25px 0}
+.about-invite .hero-actions{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+@media(max-width:850px){.about-hero{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:30px}.about-hero h1{font-size:clamp(2.8rem,6.7vw,4.5rem)}.about-section{grid-template-columns:1fr;gap:26px}.about-section h2{max-width:24ch}}
+@media(max-width:620px){.about-hero{grid-template-columns:1fr}.about-hero h1{font-size:clamp(2.65rem,11.8vw,4rem)}.about-portrait{justify-self:start;max-width:360px;margin-top:8px}.about-projects{grid-template-columns:1fr}.about-lead{margin-top:24px}.about-section{margin-top:60px}}
